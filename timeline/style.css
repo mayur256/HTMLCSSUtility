@@ -1,3 +1,7 @@
+:root {
+    --row-gap-y: 3rem;
+}
+
 .timeline-container {
     flex: 1;
     display: grid;
@@ -5,26 +9,24 @@
     grid-auto-flow: column;
 }
 
+/** Checkpoint styles */
 .checkpoint {
     display: flex;
     align-items: center;
     flex-direction: column;
-    row-gap: 3rem;
+    row-gap: var(--row-gap-y);
 }
 
 .checkpoint > div:first-child {
     flex-grow: 0.5;
 }
 
-.checkpoint > div {
-    flex-grow: 1;
-}
-
+/** Style for the checkpoint title element */
 .status-title {
     position: relative;
     text-align: center;
     border: 1px solid;
-    max-height: 3rem;
+    max-height: var(--row-gap-y);
     width: 50%;
     font-size: 1vw;
     padding: 1rem;
@@ -45,4 +47,19 @@
 
 .checkpoint.culmination .status-title {
     border-radius: 50px;
+}
+
+
+/** user info box styles */
+.info-box {
+    position: relative;
+}
+
+.connector {
+    left: 50%;
+    height: var(--row-gap-y);
+    width: 1px;
+    background-color: #ddd;
+    transform: translateY(-3rem);
+    
 }
