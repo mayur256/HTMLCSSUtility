@@ -28,7 +28,7 @@
     border: 1px solid;
     max-height: var(--row-gap-y);
     width: 50%;
-    font-size: 1vw;
+    font-size: clamp(0.1rem, 1vw , 1vw + 0.1rem);
     padding: 1rem;
     border-radius: 50%;
 }
@@ -61,5 +61,12 @@
     width: 1px;
     background-color: #ddd;
     transform: translateY(-3rem);
-    
+}
+
+/** Media Queries */
+/** For extra large devices */
+@media only screen and (min-width: 1200px) {
+    .status-title {
+        font-size: 0.8rem;
+    }
 }
