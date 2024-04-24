@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style type="text/css">
+        .resp-table {
+            width: 100%;
+            display: table;
+        }
+
+        .table-container {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            background-color: white;
+        }
+
+        .resp-table-body {
+            display: table-row-group;
+        }
+
+        .resp-table-row {
+            display: table-row;
+        }
+
+        .table-body-cell {
+            min-width: 100px;
+            display: table-cell;
+            border-bottom: 1px solid #dddddd;
+            padding: 0.5rem;
+            line-height: 1.42857143;
+            vertical-align: top;
+            background-color: var(--bs-table-bg);
+        }
+
+        .fixed-pos-td:first-child {
+            position: sticky;
+            background: lightcyan;
+            left: 0rem;
+        }
+
+        .fixed-pos-td:nth-child(2) {
+            position: sticky;
+            background: lightgray;
+            left: 130px;
+        }
+
+        @media (max-width: 768px) {
+            .fixed-pos-td:first-child {
+                left: 0rem;
+            }
+
+        }
+
+        .fixed-pos {
+            position: sticky;
+            top: 0rem;
+            width: 25vw;
+            left: 0;
+            padding: 0.5rem 1rem;
+            background-color: lightgray !important;
+            z-index: 1;
+        }
+
+        .fixed-pos:first-child {
+            z-index: 2;
+        }
+
+        .z-index-100 {
+            z-index: 100;
+        }
+
+        .child-row {
+            display: none;
+            padding: 1rem;
+        }
+    </style>
+
+</head>
+</head>
+
+<body style="margin: unset;">
+    <div class="">
+        <div class="resp-table table" id="tableRoot">
+            <div class="resp-table-body">
+                <div class="resp-table-row fw-medium th-row-class th-row-style">
+                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">Title 1 <i
+                            class="ace-icon fa fa-sort"></i></div>
+                    <div class="table-body-cell fixed-pos ">Title 2 </div>
+                    <div class="table-body-cell fixed-pos">Title 3 </div>
+                    <div class="table-body-cell fixed-pos">Title 4 </div>
+                    <div class="table-body-cell fixed-pos">Title 5 </div>
+                    <div class="table-body-cell fixed-pos">Title 6 </div>
+                    <div class="table-body-cell fixed-pos">Title 7 </div>
+                    <div class="table-body-cell fixed-pos">Title 8 </div>
+                    <div class="table-body-cell fixed-pos">Title 9 </div>
+                    <div class="table-body-cell fixed-pos">Title 10 </div>
+                    <div class="table-body-cell fixed-pos">Title 11 </div>
+                    <div class="table-body-cell fixed-pos">Title 12 </div>
+                    <div class="table-body-cell fixed-pos">Title 13 </div>
+                    <div class="table-body-cell fixed-pos">Title 14 </div>
+                    <div class="table-body-cell fixed-pos">Title 15 </div>
+                    <div class="table-body-cell fixed-pos">Title 16 </div>
+                </div>
+            </div>
+            <div class="resp-table-body">
+                <div class="resp-table-row parent-row" id="row_1">
+                    <div class="table-body-cell fixed-pos-td">
+                        <input type="checkbox" name="">
+                    </div>
+                    <div class="table-body-cell fixed-pos-td">
+                        <button type="button">Show More</button>
+                        Data 1-1
+                    </div>
+                    <div class="table-body-cell">Data 1-2</div>
+                    <div class="table-body-cell">Data 1-3</div>
+                    <div class="table-body-cell">Data 1-4</div>
+                    <div class="table-body-cell">Data 1-5</div>
+                    <div class="table-body-cell">Data 1-6</div>
+                    <div class="table-body-cell">Data 1-7</div>
+                    <div class="table-body-cell">Data 1-8</div>
+                    <div class="table-body-cell">Data 1-9</div>
+                    <div class="table-body-cell">Data 1-10</div>
+                    <div class="table-body-cell">Data 1-11</div>
+                    <div class="table-body-cell">Data 1-12</div>
+                    <div class="table-body-cell">Data 1-13</div>
+                    <div class="table-body-cell">Data 1-14</div>
+                    <div class="table-body-cell">Data 1-15</div>
+                    <div class="table-body-cell">Data 1-16</div>
+                </div>
+                <div class="resp-table-row child-row" id="row_child_1_1" data-parent="row_1">
+                    <div class="table-body-cell fixed-pos-td">
+                        <input type="checkbox" name="">
+                    </div>
+                    <div class="table-body-cell fixed-pos-td">
+                        Child Data 1-1
+
+                    </div>
+                    <div class="table-body-cell">Child Data 1-2</div>
+                    <div class="table-body-cell">Child Data 1-3</div>
+                    <div class="table-body-cell">Child Data 1-4</div>
+                </div>
+                <div class="resp-table-row child-row" id="row_child_1_2" data-parent="row_1">
+                    <div class="table-body-cell fixed-pos-td">
+                        <input type="checkbox" name="">
+                    </div>
+                    <div class="table-body-cell fixed-pos-td">
+                        Child Data 1-1
+
+                    </div>
+                    <div class="table-body-cell">Child Data 1-2</div>
+                    <div class="table-body-cell">Child Data 1-3</div>
+                    <div class="table-body-cell">Child Data 1-4</div>
+                </div>
+
+                <div class="resp-table-row parent-row" id="row_2">
+                    <div class="table-body-cell fixed-pos-td">
+                        <input type="checkbox" name="">
+                    </div>
+                    <div class="table-body-cell fixed-pos-td">
+                        <button type="button">Show More</button>
+                        Data 2-1
+                    </div>
+                    <div class="table-body-cell">Data 2-2</div>
+                    <div class="table-body-cell">Data 2-3</div>
+                    <div class="table-body-cell">Data 2-4</div>
+                    <div class="table-body-cell">Data 2-5</div>
+                    <div class="table-body-cell">Data 2-6</div>
+                    <div class="table-body-cell">Data 2-7</div>
+                    <div class="table-body-cell">Data 2-8</div>
+                    <div class="table-body-cell">Data 2-9</div>
+                    <div class="table-body-cell">Data 2-10</div>
+                    <div class="table-body-cell">Data 2-11</div>
+                    <div class="table-body-cell">Data 2-12</div>
+                    <div class="table-body-cell">Data 2-13</div>
+                    <div class="table-body-cell">Data 2-14</div>
+                    <div class="table-body-cell">Data 2-15</div>
+                    <div class="table-body-cell">Data 2-16</div>
+                </div>
+                <div class="resp-table-row child-row" id="row_child_2" data-parent="row_2">
+                    <div class="table-body-cell fixed-pos-td">
+                        <input type="checkbox" name="">
+                    </div>
+                    <div class="table-body-cell fixed-pos-td">
+                        Child Data 1-1
+
+                    </div>
+                    <div class="table-body-cell">Child Data 1-2</div>
+                    <div class="table-body-cell">Child Data 1-3</div>
+                    <div class="table-body-cell">Child Data 1-4</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        (function () {
+            document.addEventListener("DOMContentLoaded", (event) => {
+
+                tableRoot.addEventListener("click", (event) => {
+                    const parentRow = event.target.closest(".parent-row")
+                    const childrenRows = document.querySelectorAll(`.child-row[data-parent=${parentRow.id}]`);
+
+                    for (const childRow of childrenRows) {
+                        childRow.style.display = "table-row";
+                    }
+                })
+            });
+        })()
+    </script>
+</body>
+
+</html>
