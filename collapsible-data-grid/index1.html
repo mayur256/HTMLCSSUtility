@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collapsible Table</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        .row {
+            padding: 0.5rem;
+            border-bottom: 1px solid #ccc;
+            transition: all 0.3s ease;
+            /* Smooth transition */
+        }
+
+        .row.header {
+            display: flex;
+            flex-wrap: nowrap;
+            background-color: #ddd;
+        }
+
+        .row.header .cell {
+            min-width: 250px;
+        }
+
+        .cell {
+            flex: 1;
+        }
+
+        .child-row {
+            padding: 2rem 4rem;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="border border-1 w-100" id="tableRoot">
+        <div class="row header">
+            <div class="cell position-sticky">ID</div>
+            <div class="cell">Name</div>
+            <div class="cell">Age</div>
+            <div class="cell">Email</div>
+            <div class="cell">Action</div>
+            <div class="cell">Country</div>
+            <div class="cell">City</div>
+            <div class="cell">State</div>
+        </div>
+        <!-- Parent row 1 -->
+        <div class="row">
+            <div class="cell">1</div>
+            <div class="cell">
+                <i class="material-icons pointer" role="button">expand_less</i>
+                John Doe
+            </div>
+            <div class="cell">30</div>
+            <div class="cell">john@example.com</div>
+            <div class="cell">john@example.com</div>
+            <div class="cell">john@example.com</div>
+            <div class="cell">john@example.com</div>
+
+            <div class="children child-row">
+                <div class="row header">
+                    <div class="cell">ID</div>
+                    <div class="cell">Name</div>
+                    <div class="cell">Age</div>
+                </div>
+
+                <div class="row">
+                    <div class="cell">1</div>
+                    <div class="cell">Child 1 of John Doe</div>
+                    <div class="cell">5</div>
+                </div>
+                <div class="row">
+                    <div class="cell">2</div>
+                    <div class="cell">Child 2 of John Doe</div>
+                    <div class="cell">8</div>
+                </div>
+            </div>
+        </div>
+        <!-- Children of parent row 1 -->
+        
+        <!-- Parent row 2 -->
+        <div class="row">
+            <div class="cell">2</div>
+            <div class="cell">
+                <i class="material-icons pointer" role="button">expand_less</i>
+                Jane Smith
+            </div>
+            <div class="cell">25</div>
+            <div class="cell">jane@example.com</div>
+            <div class="cell">john@example.com</div>
+            <div class="cell">john@example.com</div>
+            <div class="cell">john@example.com</div>
+
+            
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        (function () {
+            document.addEventListener("DOMContentLoaded", (event) => {
+
+                tableRoot.addEventListener("click", (event) => {
+                    const target = event.target;
+                    if (target.role !== "button") return;
+                    
+                    const parentRow = event.target.closest(".row");
+                    const childrenRows = parentRow.querySelector(`.children.child-row`);
+                    const parentIsRevealed = parentRow && parentRow.classList.contains('revealed');
+
+                    if (!parentIsRevealed) {
+                        target.textContent = "expand_more";
+                        parentRow.classList.add('revealed')
+                        childrenRows?.classList.add('d-block')
+                    } else {
+                        target.textContent = "expand_less";
+                        parentRow.classList.remove('revealed')
+                        childrenRows?.classList.remove('d-block')
+                    }
+                })
+            });
+        })()
+
+    </script>
+</body>
+
+</html>
