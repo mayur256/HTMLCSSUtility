@@ -81,20 +81,109 @@
         .pointer {
             cursor: pointer;
         }
+        .caption {
+            display: table-caption;
+            padding: 2rem 3rem;
+            border: 1px solid #000;
+        }
+        .caption.hide {
+            display: none;
+        }
     </style>
 
 </head>
 </head>
 
 <body style="margin: unset;">
-    <div class="">
-        <div class="resp-table table" id="tableRoot">
+    <div id="tableRoot">
+        <!-- A div table representing table header -->
+        <div class="resp-table table">
             <div class="resp-table-body">
                 <div class="resp-table-row fw-medium th-row-class th-row-style">
                     <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
-                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">Title 1 <i
-                            class="ace-icon fa fa-sort"></i></div>
-                    <div class="table-body-cell fixed-pos ">Title 2 </div>
+                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                        Header 1
+                    </div>
+                    <div class="table-body-cell fixed-pos">
+                        Header 2
+                    </div>
+                    <div class="table-body-cell fixed-pos">Header 3 </div>
+                    <div class="table-body-cell fixed-pos">Header 4 </div>
+                    <div class="table-body-cell fixed-pos">Header 5 </div>
+                    <div class="table-body-cell fixed-pos">Header 6 </div>
+                    <div class="table-body-cell fixed-pos">Header 7 </div>
+                    <div class="table-body-cell fixed-pos">Header 8 </div>
+                    <div class="table-body-cell fixed-pos">Header 9 </div>
+                    <div class="table-body-cell fixed-pos">Header 10 </div>
+                    <div class="table-body-cell fixed-pos">Header 11 </div>
+                    <div class="table-body-cell fixed-pos">Header 12 </div>
+                    <div class="table-body-cell fixed-pos">Header 13 </div>
+                    <div class="table-body-cell fixed-pos">Header 14 </div>
+                    <div class="table-body-cell fixed-pos">Header 15 </div>
+                    <div class="table-body-cell fixed-pos">Header 16 </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Div table - Data Row  -->
+        <div class="resp-table table">
+            <div class="resp-table-body">
+                <div class="resp-table-row fw-medium th-row-class th-row-style">
+                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#1</div>
+                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                        Data 1
+                        <i class="material-icons pointer" role="button">expand_less</i>
+                    </div>
+                    <div class="table-body-cell fixed-pos">
+                        Data 2
+                    </div>
+                    <div class="table-body-cell fixed-pos">Data 3 </div>
+                    <div class="table-body-cell fixed-pos">Data 4 </div>
+                    <div class="table-body-cell fixed-pos">Data 5 </div>
+                    <div class="table-body-cell fixed-pos">Data 6 </div>
+                    <div class="table-body-cell fixed-pos">Data 7 </div>
+                    <div class="table-body-cell fixed-pos">Data 8 </div>
+                    <div class="table-body-cell fixed-pos">Data 9 </div>
+                    <div class="table-body-cell fixed-pos">Data 10 </div>
+                    <div class="table-body-cell fixed-pos">Data 11 </div>
+                    <div class="table-body-cell fixed-pos">Data 12 </div>
+                    <div class="table-body-cell fixed-pos">Data 13 </div>
+                    <div class="table-body-cell fixed-pos">Data 14 </div>
+                    <div class="table-body-cell fixed-pos">Data 15 </div>
+                    <div class="table-body-cell fixed-pos">Data 16 </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Div table - Data Row  -->
+        <div class="resp-table table">
+            <!-- Caption is used as a child row of prvious sibling table-->
+            <div class="caption hide">
+                <div>Child table</div>
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Title 1
+                        </div>
+                        <div class="table-body-cell fixed-pos">Title 2 </div>
+                        <div class="table-body-cell fixed-pos">Title 3 </div>
+                        <div class="table-body-cell fixed-pos">Title 4 </div>
+                        <div class="table-body-cell fixed-pos">Title 5 </div>
+                        <div class="table-body-cell fixed-pos">Title 6 </div>
+                        <div class="table-body-cell fixed-pos">Title 7 </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resp-table-body">
+                <div class="resp-table-row fw-medium th-row-class th-row-style">
+                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                        Title 1 
+                        <i class="material-icons pointer" role="button">expand_less</i>
+                    </div>
+                    <div class="table-body-cell fixed-pos">Title 2 </div>
                     <div class="table-body-cell fixed-pos">Title 3 </div>
                     <div class="table-body-cell fixed-pos">Title 4 </div>
                     <div class="table-body-cell fixed-pos">Title 5 </div>
@@ -111,147 +200,56 @@
                     <div class="table-body-cell fixed-pos">Title 16 </div>
                 </div>
             </div>
-            <div class="resp-table-body">
-                <div class="resp-table-row parent-row" id="row_1">
-                    <div class="table-body-cell fixed-pos-td">
-                        <input type="checkbox" name="">
-                    </div>
-                    <div class="table-body-cell fixed-pos-td">
-                        <i class="material-icons pointer" role="button">expand_less</i>
-                        Data 1-1
-                    </div>
-                    <div class="table-body-cell">Data 1-2</div>
-                    <div class="table-body-cell">Data 1-3</div>
-                    <div class="table-body-cell">Data 1-4</div>
-                    <div class="table-body-cell">Data 1-5</div>
-                    <div class="table-body-cell">Data 1-6</div>
-                    <div class="table-body-cell">Data 1-7</div>
-                    <div class="table-body-cell">Data 1-8</div>
-                    <div class="table-body-cell">Data 1-9</div>
-                    <div class="table-body-cell">Data 1-10</div>
-                    <div class="table-body-cell">Data 1-11</div>
-                    <div class="table-body-cell">Data 1-12</div>
-                    <div class="table-body-cell">Data 1-13</div>
-                    <div class="table-body-cell">Data 1-14</div>
-                    <div class="table-body-cell">Data 1-15</div>
-                    <div class="table-body-cell">Data 1-16</div>
-                    
-                </div>
-                <div class="resp-table-row child-row" id="row_child_1_1" data-parent="row_1">
-                    <div class="table-body-cell fixed-pos-td">
-                        <input type="checkbox" name="">
-                    </div>
-                    <div class="table-body-cell fixed-pos-td">
-                        Child Data 1-1
+        </div>
 
-                    </div>
-                    <div class="table-body-cell">Child Data 1-2</div>
-                    <div class="table-body-cell">Child Data 1-3</div>
-                    <div class="table-body-cell">Child Data 1-4</div>
-                </div>
-                <div class="resp-table-row child-row" id="row_child_1_2" data-parent="row_1">
-                    <div class="table-body-cell fixed-pos-td">
-                        <input type="checkbox" name="">
-                    </div>
-                    <div class="table-body-cell fixed-pos-td">
-                        Child Data 1-1
+        <!-- Div table - Data Row  -->
+        <div class="resp-table table">
+            <!-- Caption is used as a child row of prvious sibling table-->
+            <div class="caption hide">
+                <div>Simple Child table</div>
+                <table border="1" cellpadding="5" cellspacing="10">
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                        <th>DOB</th>
+                    </tr>
+                    <tr>
+                        <th>John</th>
+                        <th>30</th>
+                        <th>john@doe.com</th>
+                        <th>28-02-1956</th>
+                    </tr>
 
+                    <tr>
+                        <th>John</th>
+                        <th>30</th>
+                        <th>john@doe.com</th>
+                        <th>28-02-1956</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="resp-table-body" style="visibility: hidden;">
+                <div class="resp-table-row fw-medium th-row-class th-row-style">
+                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100"></div>
+                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
                     </div>
-                    <div class="table-body-cell">Child Data 1-2</div>
-                    <div class="table-body-cell">Child Data 1-3</div>
-                    <div class="table-body-cell">Child Data 1-4</div>
+                    <div class="table-body-cell fixed-pos"></div>
+                    <div class="table-body-cell fixed-pos"></div>
+                    <div class="table-body-cell fixed-pos"></div>
+                    <div class="table-body-cell fixed-pos"></div>
+                    <div class="table-body-cell fixed-pos"></div>
+                    <div class="table-body-cell fixed-pos"></div>
+                    <div class="table-body-cell fixed-pos"></div>
+                    <div class="table-body-cell fixed-pos"></div>
+                    <div class="table-body-cell fixed-pos"> </div>
+                    <div class="table-body-cell fixed-pos"> </div>
+                    <div class="table-body-cell fixed-pos"> </div>
+                    <div class="table-body-cell fixed-pos"> </div>
+                    <div class="table-body-cell fixed-pos"> </div>
+                    <div class="table-body-cell fixed-pos"> </div>
+                    <div class="table-body-cell fixed-pos"> </div>
                 </div>
-
-                <div class="resp-table-row parent-row" id="row_2">
-                    <div class="table-body-cell fixed-pos-td">
-                        <input type="checkbox" name="">
-                    </div>
-                    <div class="table-body-cell fixed-pos-td">
-                        <i class="material-icons pointer" role="button">expand_less</i>
-                        Data 2-1
-                    </div>
-                    <div class="table-body-cell">Data 2-2</div>
-                    <div class="table-body-cell">Data 2-3</div>
-                    <div class="table-body-cell">Data 2-4</div>
-                    <div class="table-body-cell">Data 2-5</div>
-                    <div class="table-body-cell">Data 2-6</div>
-                    <div class="table-body-cell">Data 2-7</div>
-                    <div class="table-body-cell">Data 2-8</div>
-                    <div class="table-body-cell">Data 2-9</div>
-                    <div class="table-body-cell">Data 2-10</div>
-                    <div class="table-body-cell">Data 2-11</div>
-                    <div class="table-body-cell">Data 2-12</div>
-                    <div class="table-body-cell">Data 2-13</div>
-                    <div class="table-body-cell">Data 2-14</div>
-                    <div class="table-body-cell">Data 2-15</div>
-                    <div class="table-body-cell">Data 2-16</div>
-                </div>
-                <div class="resp-table-row child-row" id="row_child_2" data-parent="row_2">
-                    <div class="table-body-cell fixed-pos-td">
-                        <input type="checkbox" name="">
-                    </div>
-                    <div class="table-body-cell fixed-pos-td">
-                        Child Data 1-1
-
-                    </div>
-                    <div class="table-body-cell">Child Data 1-2</div>
-                    <div class="table-body-cell">Child Data 1-3</div>
-                    <div class="table-body-cell">Child Data 1-4</div>
-                </div>
-
-                <div class="resp-table-row parent-row" id="row_3">
-                    <div class="table-body-cell fixed-pos-td">
-                        <input type="checkbox" name="">
-                    </div>
-                    <div class="table-body-cell fixed-pos-td">
-                        <i class="material-icons pointer" role="button">expand_less</i>
-                        Data 2-1
-                    </div>
-                    <div class="table-body-cell">Data 2-2</div>
-                    <div class="table-body-cell">Data 2-3</div>
-                    <div class="table-body-cell">Data 2-4</div>
-                    <div class="table-body-cell">Data 2-5</div>
-                    <div class="table-body-cell">Data 2-6</div>
-                    <div class="table-body-cell">Data 2-7</div>
-                    <div class="table-body-cell">Data 2-8</div>
-                    <div class="table-body-cell">Data 2-9</div>
-                    <div class="table-body-cell">Data 2-10</div>
-                    <div class="table-body-cell">Data 2-11</div>
-                    <div class="table-body-cell">Data 2-12</div>
-                    <div class="table-body-cell">Data 2-13</div>
-                    <div class="table-body-cell">Data 2-14</div>
-                    <div class="table-body-cell">Data 2-15</div>
-                    <div class="table-body-cell">Data 2-16</div>
-                </div>
-                <div class="resp-table-row child-row" id="row_child_2" data-parent="row_3">
-                    <div class="table-body-cell fixed-pos-td">
-                        <input type="checkbox" name="">
-                    </div>
-                    <div class="table-body-cell fixed-pos-td">
-                        Child Data 1-1
-
-                    </div>
-                    <div class="table-body-cell">Child Data 1-2</div>
-                    <div class="table-body-cell">Child Data 1-3</div>
-                    <div class="table-body-cell">Child Data 1-4</div>
-                    <div class="table-body-cell">Child Data 1-3</div>
-                    <div class="table-body-cell">Child Data 1-4</div>
-                </div>
-                <div class="resp-table-row child-row" id="row_child_2" data-parent="row_3">
-                    <div class="table-body-cell fixed-pos-td">
-                        <input type="checkbox" name="">
-                    </div>
-                    <div class="table-body-cell fixed-pos-td">
-                        Child Data 1-1
-
-                    </div>
-                    <div class="table-body-cell">Child Data 1-2</div>
-                    <div class="table-body-cell">Child Data 1-3</div>
-                    <div class="table-body-cell">Child Data 1-4</div>
-                    <div class="table-body-cell">Child Data 1-3</div>
-                    <div class="table-body-cell">Child Data 1-4</div>
-                </div>
-
             </div>
         </div>
     </div>
@@ -264,22 +262,21 @@
                     const target = event.target;
                     if (target.role !== "button") return;
 
-                    const parentRow = event.target.closest(".parent-row");
-                    const childrenRows = document.querySelectorAll(`.child-row[data-parent=${parentRow.id}]`);
-                    const parentIsRevealed = parentRow && parentRow.classList.contains('revealed');
+                    const parentTable = event.target.closest(".table");
+                    const siblingTable = parentTable.nextElementSibling;
+                    
+                    const siblingTableCaption = siblingTable.querySelector(".caption")
+                    
+                    const parentIsRevealed = parentTable && parentTable.classList.contains('revealed');
                     if (!parentIsRevealed) {
                         target.textContent = "expand_more";
-                        parentRow.classList.add('revealed')
-                        for (const childRow of childrenRows) {
-                            childRow.style.display = "table-row";
-                        }
+                        parentTable.classList.add('revealed');
                     } else {
                         target.textContent = "expand_less";
-                        parentRow.classList.remove('revealed')
-                        for (const childRow of childrenRows) {
-                            childRow.style.display = "none";
-                        }
+                        parentTable.classList.remove('revealed')
                     }
+
+                    siblingTableCaption.classList.toggle("hide");
                 })
             });
         })()
