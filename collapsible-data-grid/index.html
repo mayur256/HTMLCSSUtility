@@ -27,7 +27,9 @@
         }
 
         .table-body-cell {
-            min-width: 100px;
+            min-width: 7rem;
+            max-width: 7rem;
+            overflow-wrap: anywhere;
             display: table-cell;
             border-bottom: 1px solid #dddddd;
             padding: 0.5rem;
@@ -81,13 +83,29 @@
         .pointer {
             cursor: pointer;
         }
+
         .caption {
             display: table-caption;
             padding: 2rem 3rem;
             border: 1px solid #000;
         }
+
         .caption.hide {
             display: none;
+        }
+
+        #tableRoot {
+            position: absolute;
+        }
+
+        #header-table {
+            position: sticky;
+            z-index: 999;
+            top: 0
+        }
+
+        .table-root-parent {
+            position: relative;
         }
     </style>
 
@@ -95,76 +113,94 @@
 </head>
 
 <body style="margin: unset;">
-    <div id="tableRoot">
-        <!-- A div table representing table header -->
-        <div class="resp-table table">
-            <div class="resp-table-body">
-                <div class="resp-table-row fw-medium th-row-class th-row-style">
-                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
-                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
-                        Header 1
-                    </div>
-                    <div class="table-body-cell fixed-pos">
-                        Header 2
-                    </div>
-                    <div class="table-body-cell fixed-pos">Header 3 </div>
-                    <div class="table-body-cell fixed-pos">Header 4 </div>
-                    <div class="table-body-cell fixed-pos">Header 5 </div>
-                    <div class="table-body-cell fixed-pos">Header 6 </div>
-                    <div class="table-body-cell fixed-pos">Header 7 </div>
-                    <div class="table-body-cell fixed-pos">Header 8 </div>
-                    <div class="table-body-cell fixed-pos">Header 9 </div>
-                    <div class="table-body-cell fixed-pos">Header 10 </div>
-                    <div class="table-body-cell fixed-pos">Header 11 </div>
-                    <div class="table-body-cell fixed-pos">Header 12 </div>
-                    <div class="table-body-cell fixed-pos">Header 13 </div>
-                    <div class="table-body-cell fixed-pos">Header 14 </div>
-                    <div class="table-body-cell fixed-pos">Header 15 </div>
-                    <div class="table-body-cell fixed-pos">Header 16 </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Div table - Data Row  -->
-        <div class="resp-table table">
-            <div class="resp-table-body">
-                <div class="resp-table-row fw-medium th-row-class th-row-style">
-                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#1</div>
-                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
-                        Data 1
-                        <i class="material-icons pointer" role="button">expand_less</i>
-                    </div>
-                    <div class="table-body-cell fixed-pos">
-                        Data 2
-                    </div>
-                    <div class="table-body-cell fixed-pos">Data 3 </div>
-                    <div class="table-body-cell fixed-pos">Data 4 </div>
-                    <div class="table-body-cell fixed-pos">Data 5 </div>
-                    <div class="table-body-cell fixed-pos">Data 6 </div>
-                    <div class="table-body-cell fixed-pos">Data 7 </div>
-                    <div class="table-body-cell fixed-pos">Data 8 </div>
-                    <div class="table-body-cell fixed-pos">Data 9 </div>
-                    <div class="table-body-cell fixed-pos">Data 10 </div>
-                    <div class="table-body-cell fixed-pos">Data 11 </div>
-                    <div class="table-body-cell fixed-pos">Data 12 </div>
-                    <div class="table-body-cell fixed-pos">Data 13 </div>
-                    <div class="table-body-cell fixed-pos">Data 14 </div>
-                    <div class="table-body-cell fixed-pos">Data 15 </div>
-                    <div class="table-body-cell fixed-pos">Data 16 </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Div table - Data Row  -->
-        <div class="resp-table table">
-            <!-- Caption is used as a child row of prvious sibling table-->
-            <div class="caption hide">
-                <div>Child table</div>
+    <div class="table-root-parent">
+        <div id="tableRoot">
+            <!-- A div table representing table header -->
+            <div class="resp-table table" id="header-table">
                 <div class="resp-table-body">
                     <div class="resp-table-row fw-medium th-row-class th-row-style">
                         <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
                         <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Header 1 added intententionaly 
+                        </div>
+                        <div class="table-body-cell fixed-pos">
+                            Header2-Letthisbeanon-breaking-text-tosee-ifitoverflows
+                        </div>
+                        <div class="table-body-cell fixed-pos">Header 3 </div>
+                        <div class="table-body-cell fixed-pos">Header 4 </div>
+                        <div class="table-body-cell fixed-pos">Header 5 </div>
+                        <div class="table-body-cell fixed-pos">Header 6 </div>
+                        <div class="table-body-cell fixed-pos">Header 7 </div>
+                        <div class="table-body-cell fixed-pos">Header 8 </div>
+                        <div class="table-body-cell fixed-pos">Header 9 </div>
+                        <div class="table-body-cell fixed-pos">Header 10 </div>
+                        <div class="table-body-cell fixed-pos">Header 11 </div>
+                        <div class="table-body-cell fixed-pos">Header 12 </div>
+                        <div class="table-body-cell fixed-pos">Header 13 </div>
+                        <div class="table-body-cell fixed-pos">Header 14 </div>
+                        <div class="table-body-cell fixed-pos">Header 15 </div>
+                        <div class="table-body-cell fixed-pos">Header16ATrueNonBreakingTextWithoutanyDelimiters </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#1</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Data 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
+                        </div>
+                        <div class="table-body-cell fixed-pos">
+                            Data 2
+                        </div>
+                        <div class="table-body-cell fixed-pos">Data 3 </div>
+                        <div class="table-body-cell fixed-pos">Data 4 </div>
+                        <div class="table-body-cell fixed-pos">Data 5 </div>
+                        <div class="table-body-cell fixed-pos">Data 6 </div>
+                        <div class="table-body-cell fixed-pos">Data 7 </div>
+                        <div class="table-body-cell fixed-pos">Data 8 </div>
+                        <div class="table-body-cell fixed-pos">Data 9 </div>
+                        <div class="table-body-cell fixed-pos">Data 10 </div>
+                        <div class="table-body-cell fixed-pos">Data 11 </div>
+                        <div class="table-body-cell fixed-pos">Data 12 </div>
+                        <div class="table-body-cell fixed-pos">Data 13 </div>
+                        <div class="table-body-cell fixed-pos">Data 14 </div>
+                        <div class="table-body-cell fixed-pos">Data 15 </div>
+                        <div class="table-body-cell fixed-pos">Data 16 </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Child table</div>
+                    <div class="resp-table-body">
+                        <div class="resp-table-row fw-medium th-row-class th-row-style">
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                                Title 1
+                            </div>
+                            <div class="table-body-cell fixed-pos">Title 2 </div>
+                            <div class="table-body-cell fixed-pos">Title 3 </div>
+                            <div class="table-body-cell fixed-pos">Title 4 </div>
+                            <div class="table-body-cell fixed-pos">Title 5 </div>
+                            <div class="table-body-cell fixed-pos">Title 6 </div>
+                            <div class="table-body-cell fixed-pos">Title 7 </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
                             Title 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
                         </div>
                         <div class="table-body-cell fixed-pos">Title 2 </div>
                         <div class="table-body-cell fixed-pos">Title 3 </div>
@@ -172,83 +208,823 @@
                         <div class="table-body-cell fixed-pos">Title 5 </div>
                         <div class="table-body-cell fixed-pos">Title 6 </div>
                         <div class="table-body-cell fixed-pos">Title 7 </div>
+                        <div class="table-body-cell fixed-pos">Title 8 </div>
+                        <div class="table-body-cell fixed-pos">Title 9 </div>
+                        <div class="table-body-cell fixed-pos">Title 10 </div>
+                        <div class="table-body-cell fixed-pos">Title 11 </div>
+                        <div class="table-body-cell fixed-pos">Title 12 </div>
+                        <div class="table-body-cell fixed-pos">Title 13 </div>
+                        <div class="table-body-cell fixed-pos">Title 14 </div>
+                        <div class="table-body-cell fixed-pos">Title 15 </div>
+                        <div class="table-body-cell fixed-pos">Title 16 - Adding Extra data to check how other cells in the same column behave</div>
                     </div>
                 </div>
             </div>
 
-            <div class="resp-table-body">
-                <div class="resp-table-row fw-medium th-row-class th-row-style">
-                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
-                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
-                        Title 1 
-                        <i class="material-icons pointer" role="button">expand_less</i>
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Child table</div>
+                    <div class="resp-table-body">
+                        <div class="resp-table-row fw-medium th-row-class th-row-style">
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                                Title 1
+                            </div>
+                            <div class="table-body-cell fixed-pos">Title 2 </div>
+                            <div class="table-body-cell fixed-pos">Title 3 </div>
+                            <div class="table-body-cell fixed-pos">Title 4 </div>
+                            <div class="table-body-cell fixed-pos">Title 5 </div>
+                            <div class="table-body-cell fixed-pos">Title 6 </div>
+                            <div class="table-body-cell fixed-pos">Title 7 </div>
+                        </div>
                     </div>
-                    <div class="table-body-cell fixed-pos">Title 2 </div>
-                    <div class="table-body-cell fixed-pos">Title 3 </div>
-                    <div class="table-body-cell fixed-pos">Title 4 </div>
-                    <div class="table-body-cell fixed-pos">Title 5 </div>
-                    <div class="table-body-cell fixed-pos">Title 6 </div>
-                    <div class="table-body-cell fixed-pos">Title 7 </div>
-                    <div class="table-body-cell fixed-pos">Title 8 </div>
-                    <div class="table-body-cell fixed-pos">Title 9 </div>
-                    <div class="table-body-cell fixed-pos">Title 10 </div>
-                    <div class="table-body-cell fixed-pos">Title 11 </div>
-                    <div class="table-body-cell fixed-pos">Title 12 </div>
-                    <div class="table-body-cell fixed-pos">Title 13 </div>
-                    <div class="table-body-cell fixed-pos">Title 14 </div>
-                    <div class="table-body-cell fixed-pos">Title 15 </div>
-                    <div class="table-body-cell fixed-pos">Title 16 </div>
+                </div>
+
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Title 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
+                        </div>
+                        <div class="table-body-cell fixed-pos">Title 2 </div>
+                        <div class="table-body-cell fixed-pos">Title 3 </div>
+                        <div class="table-body-cell fixed-pos">Title 4 </div>
+                        <div class="table-body-cell fixed-pos">Title 5 </div>
+                        <div class="table-body-cell fixed-pos">Title 6 </div>
+                        <div class="table-body-cell fixed-pos">Title 7 </div>
+                        <div class="table-body-cell fixed-pos">Title 8 </div>
+                        <div class="table-body-cell fixed-pos">Title 9 </div>
+                        <div class="table-body-cell fixed-pos">Title 10 </div>
+                        <div class="table-body-cell fixed-pos">Title 11 </div>
+                        <div class="table-body-cell fixed-pos">Title 12 </div>
+                        <div class="table-body-cell fixed-pos">Title 13 </div>
+                        <div class="table-body-cell fixed-pos">Title 14 </div>
+                        <div class="table-body-cell fixed-pos">Title 15 </div>
+                        <div class="table-body-cell fixed-pos">Title 16 </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Div table - Data Row  -->
-        <div class="resp-table table">
-            <!-- Caption is used as a child row of prvious sibling table-->
-            <div class="caption hide">
-                <div>Simple Child table</div>
-                <table border="1" cellpadding="5" cellspacing="10">
-                    <tr>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Email</th>
-                        <th>DOB</th>
-                    </tr>
-                    <tr>
-                        <th>John</th>
-                        <th>30</th>
-                        <th>john@doe.com</th>
-                        <th>28-02-1956</th>
-                    </tr>
-
-                    <tr>
-                        <th>John</th>
-                        <th>30</th>
-                        <th>john@doe.com</th>
-                        <th>28-02-1956</th>
-                    </tr>
-                </table>
-            </div>
-            <div class="resp-table-body" style="visibility: hidden;">
-                <div class="resp-table-row fw-medium th-row-class th-row-style">
-                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100"></div>
-                    <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Child table</div>
+                    <div class="resp-table-body">
+                        <div class="resp-table-row fw-medium th-row-class th-row-style">
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                                Title 1
+                            </div>
+                            <div class="table-body-cell fixed-pos">Title 2 </div>
+                            <div class="table-body-cell fixed-pos">Title 3 </div>
+                            <div class="table-body-cell fixed-pos">Title 4 </div>
+                            <div class="table-body-cell fixed-pos">Title 5 </div>
+                            <div class="table-body-cell fixed-pos">Title 6 </div>
+                            <div class="table-body-cell fixed-pos">Title 7 </div>
+                        </div>
                     </div>
-                    <div class="table-body-cell fixed-pos"></div>
-                    <div class="table-body-cell fixed-pos"></div>
-                    <div class="table-body-cell fixed-pos"></div>
-                    <div class="table-body-cell fixed-pos"></div>
-                    <div class="table-body-cell fixed-pos"></div>
-                    <div class="table-body-cell fixed-pos"></div>
-                    <div class="table-body-cell fixed-pos"></div>
-                    <div class="table-body-cell fixed-pos"></div>
-                    <div class="table-body-cell fixed-pos"> </div>
-                    <div class="table-body-cell fixed-pos"> </div>
-                    <div class="table-body-cell fixed-pos"> </div>
-                    <div class="table-body-cell fixed-pos"> </div>
-                    <div class="table-body-cell fixed-pos"> </div>
-                    <div class="table-body-cell fixed-pos"> </div>
-                    <div class="table-body-cell fixed-pos"> </div>
+                </div>
+
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Title 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
+                        </div>
+                        <div class="table-body-cell fixed-pos">Title 2 </div>
+                        <div class="table-body-cell fixed-pos">Title 3 </div>
+                        <div class="table-body-cell fixed-pos">Title 4 </div>
+                        <div class="table-body-cell fixed-pos">Title 5 </div>
+                        <div class="table-body-cell fixed-pos">Title 6 </div>
+                        <div class="table-body-cell fixed-pos">Title 7 </div>
+                        <div class="table-body-cell fixed-pos">Title 8 </div>
+                        <div class="table-body-cell fixed-pos">Title 9 </div>
+                        <div class="table-body-cell fixed-pos">Title 10 </div>
+                        <div class="table-body-cell fixed-pos">Title 11 </div>
+                        <div class="table-body-cell fixed-pos">Title 12 </div>
+                        <div class="table-body-cell fixed-pos">Title 13 </div>
+                        <div class="table-body-cell fixed-pos">Title 14 </div>
+                        <div class="table-body-cell fixed-pos">Title 15 </div>
+                        <div class="table-body-cell fixed-pos">Title 16 </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Child table</div>
+                    <div class="resp-table-body">
+                        <div class="resp-table-row fw-medium th-row-class th-row-style">
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                                Title 1
+                            </div>
+                            <div class="table-body-cell fixed-pos">Title 2 </div>
+                            <div class="table-body-cell fixed-pos">Title 3 </div>
+                            <div class="table-body-cell fixed-pos">Title 4 </div>
+                            <div class="table-body-cell fixed-pos">Title 5 </div>
+                            <div class="table-body-cell fixed-pos">Title 6 </div>
+                            <div class="table-body-cell fixed-pos">Title 7 </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Title 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
+                        </div>
+                        <div class="table-body-cell fixed-pos">Title 2 </div>
+                        <div class="table-body-cell fixed-pos">Title 3 </div>
+                        <div class="table-body-cell fixed-pos">Title 4 </div>
+                        <div class="table-body-cell fixed-pos">Title 5 </div>
+                        <div class="table-body-cell fixed-pos">Title 6 </div>
+                        <div class="table-body-cell fixed-pos">Title 7 </div>
+                        <div class="table-body-cell fixed-pos">Title 8 </div>
+                        <div class="table-body-cell fixed-pos">Title 9 </div>
+                        <div class="table-body-cell fixed-pos">Title 10 </div>
+                        <div class="table-body-cell fixed-pos">Title 11 </div>
+                        <div class="table-body-cell fixed-pos">Title 12 </div>
+                        <div class="table-body-cell fixed-pos">Title 13 </div>
+                        <div class="table-body-cell fixed-pos">Title 14 </div>
+                        <div class="table-body-cell fixed-pos">Title 15 </div>
+                        <div class="table-body-cell fixed-pos">Title 16 </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Child table</div>
+                    <div class="resp-table-body">
+                        <div class="resp-table-row fw-medium th-row-class th-row-style">
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                                Title 1
+                            </div>
+                            <div class="table-body-cell fixed-pos">Title 2 </div>
+                            <div class="table-body-cell fixed-pos">Title 3 </div>
+                            <div class="table-body-cell fixed-pos">Title 4 </div>
+                            <div class="table-body-cell fixed-pos">Title 5 </div>
+                            <div class="table-body-cell fixed-pos">Title 6 </div>
+                            <div class="table-body-cell fixed-pos">Title 7 </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Title 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
+                        </div>
+                        <div class="table-body-cell fixed-pos">Title 2 </div>
+                        <div class="table-body-cell fixed-pos">Title 3 </div>
+                        <div class="table-body-cell fixed-pos">Title 4 </div>
+                        <div class="table-body-cell fixed-pos">Title 5 </div>
+                        <div class="table-body-cell fixed-pos">Title 6 </div>
+                        <div class="table-body-cell fixed-pos">Title 7 </div>
+                        <div class="table-body-cell fixed-pos">Title 8 </div>
+                        <div class="table-body-cell fixed-pos">Title 9 </div>
+                        <div class="table-body-cell fixed-pos">Title 10 </div>
+                        <div class="table-body-cell fixed-pos">Title 11 </div>
+                        <div class="table-body-cell fixed-pos">Title 12 </div>
+                        <div class="table-body-cell fixed-pos">Title 13 </div>
+                        <div class="table-body-cell fixed-pos">Title 14 </div>
+                        <div class="table-body-cell fixed-pos">Title 15 </div>
+                        <div class="table-body-cell fixed-pos">Title 16 </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Child table</div>
+                    <div class="resp-table-body">
+                        <div class="resp-table-row fw-medium th-row-class th-row-style">
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                                Title 1
+                            </div>
+                            <div class="table-body-cell fixed-pos">Title 2 </div>
+                            <div class="table-body-cell fixed-pos">Title 3 </div>
+                            <div class="table-body-cell fixed-pos">Title 4 </div>
+                            <div class="table-body-cell fixed-pos">Title 5 </div>
+                            <div class="table-body-cell fixed-pos">Title 6 </div>
+                            <div class="table-body-cell fixed-pos">Title 7 </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Title 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
+                        </div>
+                        <div class="table-body-cell fixed-pos">Title 2 </div>
+                        <div class="table-body-cell fixed-pos">Title 3 </div>
+                        <div class="table-body-cell fixed-pos">Title 4 </div>
+                        <div class="table-body-cell fixed-pos">Title 5 </div>
+                        <div class="table-body-cell fixed-pos">Title 6 </div>
+                        <div class="table-body-cell fixed-pos">Title 7 </div>
+                        <div class="table-body-cell fixed-pos">Title 8 </div>
+                        <div class="table-body-cell fixed-pos">Title 9 </div>
+                        <div class="table-body-cell fixed-pos">Title 10 </div>
+                        <div class="table-body-cell fixed-pos">Title 11 </div>
+                        <div class="table-body-cell fixed-pos">Title 12 </div>
+                        <div class="table-body-cell fixed-pos">Title 13 </div>
+                        <div class="table-body-cell fixed-pos">Title 14 </div>
+                        <div class="table-body-cell fixed-pos">Title 15 </div>
+                        <div class="table-body-cell fixed-pos">Title 16 </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Child table</div>
+                    <div class="resp-table-body">
+                        <div class="resp-table-row fw-medium th-row-class th-row-style">
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                                Title 1
+                            </div>
+                            <div class="table-body-cell fixed-pos">Title 2 </div>
+                            <div class="table-body-cell fixed-pos">Title 3 </div>
+                            <div class="table-body-cell fixed-pos">Title 4 </div>
+                            <div class="table-body-cell fixed-pos">Title 5 </div>
+                            <div class="table-body-cell fixed-pos">Title 6 </div>
+                            <div class="table-body-cell fixed-pos">Title 7 </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Title 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
+                        </div>
+                        <div class="table-body-cell fixed-pos">Title 2 </div>
+                        <div class="table-body-cell fixed-pos">Title 3 </div>
+                        <div class="table-body-cell fixed-pos">Title 4 </div>
+                        <div class="table-body-cell fixed-pos">Title 5 </div>
+                        <div class="table-body-cell fixed-pos">Title 6 </div>
+                        <div class="table-body-cell fixed-pos">Title 7 </div>
+                        <div class="table-body-cell fixed-pos">Title 8 </div>
+                        <div class="table-body-cell fixed-pos">Title 9 </div>
+                        <div class="table-body-cell fixed-pos">Title 10 </div>
+                        <div class="table-body-cell fixed-pos">Title 11 </div>
+                        <div class="table-body-cell fixed-pos">Title 12 </div>
+                        <div class="table-body-cell fixed-pos">Title 13 </div>
+                        <div class="table-body-cell fixed-pos">Title 14 </div>
+                        <div class="table-body-cell fixed-pos">Title 15 </div>
+                        <div class="table-body-cell fixed-pos">Title 16 </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Child table</div>
+                    <div class="resp-table-body">
+                        <div class="resp-table-row fw-medium th-row-class th-row-style">
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                                Title 1
+                            </div>
+                            <div class="table-body-cell fixed-pos">Title 2 </div>
+                            <div class="table-body-cell fixed-pos">Title 3 </div>
+                            <div class="table-body-cell fixed-pos">Title 4 </div>
+                            <div class="table-body-cell fixed-pos">Title 5 </div>
+                            <div class="table-body-cell fixed-pos">Title 6 </div>
+                            <div class="table-body-cell fixed-pos">Title 7 </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Title 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
+                        </div>
+                        <div class="table-body-cell fixed-pos">Title 2 </div>
+                        <div class="table-body-cell fixed-pos">Title 3 </div>
+                        <div class="table-body-cell fixed-pos">Title 4 </div>
+                        <div class="table-body-cell fixed-pos">Title 5 </div>
+                        <div class="table-body-cell fixed-pos">Title 6 </div>
+                        <div class="table-body-cell fixed-pos">Title 7 </div>
+                        <div class="table-body-cell fixed-pos">Title 8 </div>
+                        <div class="table-body-cell fixed-pos">Title 9 </div>
+                        <div class="table-body-cell fixed-pos">Title 10 </div>
+                        <div class="table-body-cell fixed-pos">Title 11 </div>
+                        <div class="table-body-cell fixed-pos">Title 12 </div>
+                        <div class="table-body-cell fixed-pos">Title 13 </div>
+                        <div class="table-body-cell fixed-pos">Title 14 </div>
+                        <div class="table-body-cell fixed-pos">Title 15 </div>
+                        <div class="table-body-cell fixed-pos">Title 16 </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Child table</div>
+                    <div class="resp-table-body">
+                        <div class="resp-table-row fw-medium th-row-class th-row-style">
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                                Title 1
+                            </div>
+                            <div class="table-body-cell fixed-pos">Title 2 </div>
+                            <div class="table-body-cell fixed-pos">Title 3 </div>
+                            <div class="table-body-cell fixed-pos">Title 4 </div>
+                            <div class="table-body-cell fixed-pos">Title 5 </div>
+                            <div class="table-body-cell fixed-pos">Title 6 </div>
+                            <div class="table-body-cell fixed-pos">Title 7 </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Title 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
+                        </div>
+                        <div class="table-body-cell fixed-pos">Title 2 </div>
+                        <div class="table-body-cell fixed-pos">Title 3 </div>
+                        <div class="table-body-cell fixed-pos">Title 4 </div>
+                        <div class="table-body-cell fixed-pos">Title 5 </div>
+                        <div class="table-body-cell fixed-pos">Title 6 </div>
+                        <div class="table-body-cell fixed-pos">Title 7 </div>
+                        <div class="table-body-cell fixed-pos">Title 8 </div>
+                        <div class="table-body-cell fixed-pos">Title 9 </div>
+                        <div class="table-body-cell fixed-pos">Title 10 </div>
+                        <div class="table-body-cell fixed-pos">Title 11 </div>
+                        <div class="table-body-cell fixed-pos">Title 12 </div>
+                        <div class="table-body-cell fixed-pos">Title 13 </div>
+                        <div class="table-body-cell fixed-pos">Title 14 </div>
+                        <div class="table-body-cell fixed-pos">Title 15 </div>
+                        <div class="table-body-cell fixed-pos">Title 16 </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Child table</div>
+                    <div class="resp-table-body">
+                        <div class="resp-table-row fw-medium th-row-class th-row-style">
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                                Title 1
+                            </div>
+                            <div class="table-body-cell fixed-pos">Title 2 </div>
+                            <div class="table-body-cell fixed-pos">Title 3 </div>
+                            <div class="table-body-cell fixed-pos">Title 4 </div>
+                            <div class="table-body-cell fixed-pos">Title 5 </div>
+                            <div class="table-body-cell fixed-pos">Title 6 </div>
+                            <div class="table-body-cell fixed-pos">Title 7 </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Title 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
+                        </div>
+                        <div class="table-body-cell fixed-pos">Title 2 </div>
+                        <div class="table-body-cell fixed-pos">Title 3 </div>
+                        <div class="table-body-cell fixed-pos">Title 4 </div>
+                        <div class="table-body-cell fixed-pos">Title 5 </div>
+                        <div class="table-body-cell fixed-pos">Title 6 </div>
+                        <div class="table-body-cell fixed-pos">Title 7 </div>
+                        <div class="table-body-cell fixed-pos">Title 8 </div>
+                        <div class="table-body-cell fixed-pos">Title 9 </div>
+                        <div class="table-body-cell fixed-pos">Title 10 </div>
+                        <div class="table-body-cell fixed-pos">Title 11 </div>
+                        <div class="table-body-cell fixed-pos">Title 12 </div>
+                        <div class="table-body-cell fixed-pos">Title 13 </div>
+                        <div class="table-body-cell fixed-pos">Title 14 </div>
+                        <div class="table-body-cell fixed-pos">Title 15 </div>
+                        <div class="table-body-cell fixed-pos">Title 16 </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Child table</div>
+                    <div class="resp-table-body">
+                        <div class="resp-table-row fw-medium th-row-class th-row-style">
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                                Title 1
+                            </div>
+                            <div class="table-body-cell fixed-pos">Title 2 </div>
+                            <div class="table-body-cell fixed-pos">Title 3 </div>
+                            <div class="table-body-cell fixed-pos">Title 4 </div>
+                            <div class="table-body-cell fixed-pos">Title 5 </div>
+                            <div class="table-body-cell fixed-pos">Title 6 </div>
+                            <div class="table-body-cell fixed-pos">Title 7 </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Title 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
+                        </div>
+                        <div class="table-body-cell fixed-pos">Title 2 </div>
+                        <div class="table-body-cell fixed-pos">Title 3 </div>
+                        <div class="table-body-cell fixed-pos">Title 4 </div>
+                        <div class="table-body-cell fixed-pos">Title 5 </div>
+                        <div class="table-body-cell fixed-pos">Title 6 </div>
+                        <div class="table-body-cell fixed-pos">Title 7 </div>
+                        <div class="table-body-cell fixed-pos">Title 8 </div>
+                        <div class="table-body-cell fixed-pos">Title 9 </div>
+                        <div class="table-body-cell fixed-pos">Title 10 </div>
+                        <div class="table-body-cell fixed-pos">Title 11 </div>
+                        <div class="table-body-cell fixed-pos">Title 12 </div>
+                        <div class="table-body-cell fixed-pos">Title 13 </div>
+                        <div class="table-body-cell fixed-pos">Title 14 </div>
+                        <div class="table-body-cell fixed-pos">Title 15 </div>
+                        <div class="table-body-cell fixed-pos">Title 16 </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Child table</div>
+                    <div class="resp-table-body">
+                        <div class="resp-table-row fw-medium th-row-class th-row-style">
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                                Title 1
+                            </div>
+                            <div class="table-body-cell fixed-pos">Title 2 </div>
+                            <div class="table-body-cell fixed-pos">Title 3 </div>
+                            <div class="table-body-cell fixed-pos">Title 4 </div>
+                            <div class="table-body-cell fixed-pos">Title 5 </div>
+                            <div class="table-body-cell fixed-pos">Title 6 </div>
+                            <div class="table-body-cell fixed-pos">Title 7 </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Title 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
+                        </div>
+                        <div class="table-body-cell fixed-pos">Title 2 </div>
+                        <div class="table-body-cell fixed-pos">Title 3 </div>
+                        <div class="table-body-cell fixed-pos">Title 4 </div>
+                        <div class="table-body-cell fixed-pos">Title 5 </div>
+                        <div class="table-body-cell fixed-pos">Title 6 </div>
+                        <div class="table-body-cell fixed-pos">Title 7 </div>
+                        <div class="table-body-cell fixed-pos">Title 8 </div>
+                        <div class="table-body-cell fixed-pos">Title 9 </div>
+                        <div class="table-body-cell fixed-pos">Title 10 </div>
+                        <div class="table-body-cell fixed-pos">Title 11 </div>
+                        <div class="table-body-cell fixed-pos">Title 12 </div>
+                        <div class="table-body-cell fixed-pos">Title 13 </div>
+                        <div class="table-body-cell fixed-pos">Title 14 </div>
+                        <div class="table-body-cell fixed-pos">Title 15 </div>
+                        <div class="table-body-cell fixed-pos">Title 16 </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Child table</div>
+                    <div class="resp-table-body">
+                        <div class="resp-table-row fw-medium th-row-class th-row-style">
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                                Title 1
+                            </div>
+                            <div class="table-body-cell fixed-pos">Title 2 </div>
+                            <div class="table-body-cell fixed-pos">Title 3 </div>
+                            <div class="table-body-cell fixed-pos">Title 4 </div>
+                            <div class="table-body-cell fixed-pos">Title 5 </div>
+                            <div class="table-body-cell fixed-pos">Title 6 </div>
+                            <div class="table-body-cell fixed-pos">Title 7 </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Title 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
+                        </div>
+                        <div class="table-body-cell fixed-pos">Title 2 </div>
+                        <div class="table-body-cell fixed-pos">Title 3 </div>
+                        <div class="table-body-cell fixed-pos">Title 4 </div>
+                        <div class="table-body-cell fixed-pos">Title 5 </div>
+                        <div class="table-body-cell fixed-pos">Title 6 </div>
+                        <div class="table-body-cell fixed-pos">Title 7 </div>
+                        <div class="table-body-cell fixed-pos">Title 8 </div>
+                        <div class="table-body-cell fixed-pos">Title 9 </div>
+                        <div class="table-body-cell fixed-pos">Title 10 </div>
+                        <div class="table-body-cell fixed-pos">Title 11 </div>
+                        <div class="table-body-cell fixed-pos">Title 12 </div>
+                        <div class="table-body-cell fixed-pos">Title 13 </div>
+                        <div class="table-body-cell fixed-pos">Title 14 </div>
+                        <div class="table-body-cell fixed-pos">Title 15 </div>
+                        <div class="table-body-cell fixed-pos">Title 16 </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Child table</div>
+                    <div class="resp-table-body">
+                        <div class="resp-table-row fw-medium th-row-class th-row-style">
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                                Title 1
+                            </div>
+                            <div class="table-body-cell fixed-pos">Title 2 </div>
+                            <div class="table-body-cell fixed-pos">Title 3 </div>
+                            <div class="table-body-cell fixed-pos">Title 4 </div>
+                            <div class="table-body-cell fixed-pos">Title 5 </div>
+                            <div class="table-body-cell fixed-pos">Title 6 </div>
+                            <div class="table-body-cell fixed-pos">Title 7 </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Title 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
+                        </div>
+                        <div class="table-body-cell fixed-pos">Title 2 </div>
+                        <div class="table-body-cell fixed-pos">Title 3 </div>
+                        <div class="table-body-cell fixed-pos">Title 4 </div>
+                        <div class="table-body-cell fixed-pos">Title 5 </div>
+                        <div class="table-body-cell fixed-pos">Title 6 </div>
+                        <div class="table-body-cell fixed-pos">Title 7 </div>
+                        <div class="table-body-cell fixed-pos">Title 8 </div>
+                        <div class="table-body-cell fixed-pos">Title 9 </div>
+                        <div class="table-body-cell fixed-pos">Title 10 </div>
+                        <div class="table-body-cell fixed-pos">Title 11 </div>
+                        <div class="table-body-cell fixed-pos">Title 12 </div>
+                        <div class="table-body-cell fixed-pos">Title 13 </div>
+                        <div class="table-body-cell fixed-pos">Title 14 </div>
+                        <div class="table-body-cell fixed-pos">Title 15 </div>
+                        <div class="table-body-cell fixed-pos">Title 16 </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Child table</div>
+                    <div class="resp-table-body">
+                        <div class="resp-table-row fw-medium th-row-class th-row-style">
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                                Title 1
+                            </div>
+                            <div class="table-body-cell fixed-pos">Title 2 </div>
+                            <div class="table-body-cell fixed-pos">Title 3 </div>
+                            <div class="table-body-cell fixed-pos">Title 4 </div>
+                            <div class="table-body-cell fixed-pos">Title 5 </div>
+                            <div class="table-body-cell fixed-pos">Title 6 </div>
+                            <div class="table-body-cell fixed-pos">Title 7 </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Title 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
+                        </div>
+                        <div class="table-body-cell fixed-pos">Title 2 </div>
+                        <div class="table-body-cell fixed-pos">Title 3 </div>
+                        <div class="table-body-cell fixed-pos">Title 4 </div>
+                        <div class="table-body-cell fixed-pos">Title 5 </div>
+                        <div class="table-body-cell fixed-pos">Title 6 </div>
+                        <div class="table-body-cell fixed-pos">Title 7 </div>
+                        <div class="table-body-cell fixed-pos">Title 8 </div>
+                        <div class="table-body-cell fixed-pos">Title 9 </div>
+                        <div class="table-body-cell fixed-pos">Title 10 - In my code the column automatically wraps the long text and my column alignment doesn't break </div>
+                        <div class="table-body-cell fixed-pos">Title 11 </div>
+                        <div class="table-body-cell fixed-pos">Title 12 </div>
+                        <div class="table-body-cell fixed-pos">Title 13 </div>
+                        <div class="table-body-cell fixed-pos">Title 14 </div>
+                        <div class="table-body-cell fixed-pos">Title 15 </div>
+                        <div class="table-body-cell fixed-pos">Title 16 </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Child table</div>
+                    <div class="resp-table-body">
+                        <div class="resp-table-row fw-medium th-row-class th-row-style">
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                                Title 1
+                            </div>
+                            <div class="table-body-cell fixed-pos">Title 2 </div>
+                            <div class="table-body-cell fixed-pos">Title 3 </div>
+                            <div class="table-body-cell fixed-pos">Title 4 </div>
+                            <div class="table-body-cell fixed-pos">Title 5 </div>
+                            <div class="table-body-cell fixed-pos">Title 6 </div>
+                            <div class="table-body-cell fixed-pos">Title 7 </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Title 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
+                        </div>
+                        <div class="table-body-cell fixed-pos">Title 2 </div>
+                        <div class="table-body-cell fixed-pos">Title 3 </div>
+                        <div class="table-body-cell fixed-pos">Title 4 </div>
+                        <div class="table-body-cell fixed-pos">Title 5 </div>
+                        <div class="table-body-cell fixed-pos">Title 6 </div>
+                        <div class="table-body-cell fixed-pos">Title 7 </div>
+                        <div class="table-body-cell fixed-pos">Title 8 </div>
+                        <div class="table-body-cell fixed-pos">Title 9 </div>
+                        <div class="table-body-cell fixed-pos">Title 10 </div>
+                        <div class="table-body-cell fixed-pos">Title 11 </div>
+                        <div class="table-body-cell fixed-pos">Title 12 </div>
+                        <div class="table-body-cell fixed-pos">Title 13 </div>
+                        <div class="table-body-cell fixed-pos">Title 14 </div>
+                        <div class="table-body-cell fixed-pos">Title 15 </div>
+                        <div class="table-body-cell fixed-pos">Title 16 </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Child table</div>
+                    <div class="resp-table-body">
+                        <div class="resp-table-row fw-medium th-row-class th-row-style">
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#</div>
+                            <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                                Title 1
+                            </div>
+                            <div class="table-body-cell fixed-pos">Title 2 </div>
+                            <div class="table-body-cell fixed-pos">Title 3 </div>
+                            <div class="table-body-cell fixed-pos">Title 4 </div>
+                            <div class="table-body-cell fixed-pos">Title 5 </div>
+                            <div class="table-body-cell fixed-pos">Title 6 </div>
+                            <div class="table-body-cell fixed-pos">Title 7 </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resp-table-body">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">#2</div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                            Title 1
+                            <i class="material-icons pointer" role="button">expand_less</i>
+                        </div>
+                        <div class="table-body-cell fixed-pos">Title 2 </div>
+                        <div class="table-body-cell fixed-pos">Title 3 </div>
+                        <div class="table-body-cell fixed-pos">Title 4 </div>
+                        <div class="table-body-cell fixed-pos">Title 5 </div>
+                        <div class="table-body-cell fixed-pos">Title 6 </div>
+                        <div class="table-body-cell fixed-pos">Title 7 </div>
+                        <div class="table-body-cell fixed-pos">Title 8 </div>
+                        <div class="table-body-cell fixed-pos">Title 9 </div>
+                        <div class="table-body-cell fixed-pos">Title 10 </div>
+                        <div class="table-body-cell fixed-pos">Title 11 </div>
+                        <div class="table-body-cell fixed-pos">Title 12 </div>
+                        <div class="table-body-cell fixed-pos">Title 13 </div>
+                        <div class="table-body-cell fixed-pos">Title 14 </div>
+                        <div class="table-body-cell fixed-pos">Title 15 </div>
+                        <div class="table-body-cell fixed-pos">Title 16 </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Div table - Data Row  -->
+            <div class="resp-table table">
+                <!-- Caption is used as a child row of prvious sibling table-->
+                <div class="caption hide">
+                    <div>Simple Child table</div>
+                    <table border="1" cellpadding="5" cellspacing="10">
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Email</th>
+                            <th>DOB</th>
+                        </tr>
+                        <tr>
+                            <th>John</th>
+                            <th>30</th>
+                            <th>john@doe.com</th>
+                            <th>28-02-1956</th>
+                        </tr>
+
+                        <tr>
+                            <th>John</th>
+                            <th>30</th>
+                            <th>john@doe.com</th>
+                            <th>28-02-1956</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="resp-table-body" style="visibility: hidden;">
+                    <div class="resp-table-row fw-medium th-row-class th-row-style">
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100"></div>
+                        <div class="table-body-cell fixed-pos-td fixed-pos z-index-100">
+                        </div>
+                        <div class="table-body-cell fixed-pos"></div>
+                        <div class="table-body-cell fixed-pos"></div>
+                        <div class="table-body-cell fixed-pos"></div>
+                        <div class="table-body-cell fixed-pos"></div>
+                        <div class="table-body-cell fixed-pos"></div>
+                        <div class="table-body-cell fixed-pos"></div>
+                        <div class="table-body-cell fixed-pos"></div>
+                        <div class="table-body-cell fixed-pos"></div>
+                        <div class="table-body-cell fixed-pos"> </div>
+                        <div class="table-body-cell fixed-pos"> </div>
+                        <div class="table-body-cell fixed-pos"> </div>
+                        <div class="table-body-cell fixed-pos"> </div>
+                        <div class="table-body-cell fixed-pos"> </div>
+                        <div class="table-body-cell fixed-pos"> </div>
+                        <div class="table-body-cell fixed-pos"> </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -264,9 +1040,9 @@
 
                     const parentTable = event.target.closest(".table");
                     const siblingTable = parentTable.nextElementSibling;
-                    
+
                     const siblingTableCaption = siblingTable.querySelector(".caption")
-                    
+
                     const parentIsRevealed = parentTable && parentTable.classList.contains('revealed');
                     if (!parentIsRevealed) {
                         target.textContent = "expand_more";
