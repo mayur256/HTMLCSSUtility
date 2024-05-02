@@ -4,14 +4,26 @@
     <title>Collapsible grid</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
         .table-wrapper {
-            --ace-min-cell-width: 100px;
+            --ace-min-cell-width: 150px;
+
+            width: 100%;
+            height: 90%;
+            overflow: auto;
         }
 
         .ace-table-header {
             top: 0;
             z-index: 1;
+        }
+
+        .ace-tr .ace-th,
+        .ace-tr .ace-td {
+            min-width: var(--ace-min-cell-width);
+            vertical-align: middle;
+            overflow-wrap: anywhere;
         }
 
         .ace-table tr th:nth-child(-n + 2),
@@ -29,212 +41,1031 @@
         .ace-table tr td:nth-child(2) {
             left: var(--ace-min-cell-width);
         }
+
+        .ace-detail-row {
+            display: none;
+        }
+
+        .ace-detail-row.open {
+            display: table-row;
+        }
     </style>
 </head>
 
 <body>
-    <div data-v-7a7a37b1="" class="">
-        <div data-v-7a7a37b1="" class="table-wrapper position-relative">
-            <table data-v-7a7a37b1="" class="table ace-table">
-                <thead data-v-7a7a37b1="" class="table-dark ace-table-header position-sticky">
-                    <tr data-v-7a7a37b1="">
-                        <th data-v-7a7a37b1="" class="ace-th">Header 1</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 2</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 3</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 4</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 5</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 6</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 7</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 8</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 9</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 10</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 11</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 12</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 13</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 14</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 15</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 16</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 17</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 18</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 19</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 20</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 21</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 22</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 23</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 24</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 25</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 26</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 27</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 28</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 29</th>
-                        <th data-v-7a7a37b1="" class="ace-th">Header 30</th>
+    <div class="container-fluid p-4">
+        <div class="table-wrapper position-relative" id="tableRoot">
+            <table class="table ace-table">
+                <thead class="table-dark ace-table-header position-sticky">
+                    <tr class="ace-tr">
+                        <th class="ace-th">Header 1</th>
+                        <th class="ace-th">Header 2</th>
+                        <th class="ace-th">Header 3 LongTextWithoutSpacesToSeeHowitwraps.ItseemstobeWorkingfine</th>
+                        <th class="ace-th">Header 4</th>
+                        <th class="ace-th">Header 5 Long Text with spaces to see if it wraps</th>
+                        <th class="ace-th">Header 6</th>
+                        <th class="ace-th">Header 7</th>
+                        <th class="ace-th">Header 8</th>
+                        <th class="ace-th">Header 9</th>
+                        <th class="ace-th">Header 10</th>
+                        <th class="ace-th">Header 11</th>
+                        <th class="ace-th">Header 12</th>
+                        <th class="ace-th">Header 13</th>
+                        <th class="ace-th">Header 14</th>
+                        <th class="ace-th">Header 15</th>
+                        <th class="ace-th">Header 16</th>
+                        <th class="ace-th">Header 17</th>
+                        <th class="ace-th">Header 18</th>
+                        <th class="ace-th">Header 19</th>
+                        <th class="ace-th">Header 20</th>
+                        <th class="ace-th">Header 21</th>
+                        <th class="ace-th">Header 22</th>
+                        <th class="ace-th">Header 23</th>
+                        <th class="ace-th">Header 24</th>
+                        <th class="ace-th">Header 25</th>
+                        <th class="ace-th">Header 26</th>
+                        <th class="ace-th">Header 27</th>
+                        <th class="ace-th">Header 28</th>
+                        <th class="ace-th">Header 29</th>
+                        <th class="ace-th">Header 30</th>
                     </tr>
                 </thead>
-                <tbody data-v-7a7a37b1="">
-                    <tr data-v-7a7a37b1="" class="ace-tr">
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 00</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 01</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 02</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 03</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 04</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 05</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 06</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 07</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 08</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 09</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 010</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 011</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 012</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 013</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 014</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 015</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 016</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 017</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 018</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 019</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 020</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 021</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 022</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 023</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 024</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 025</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 026</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 027</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 028</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 029</td>
+                <tbody>
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 00</td>
+                        <td class="ace-td bg-info">Item - 01 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 02</td>
+                        <td class="ace-td bg-info">Item - 03</td>
+                        <td class="ace-td bg-info">Item - 04</td>
+                        <td class="ace-td bg-info">Item - 05</td>
+                        <td class="ace-td bg-info">Item - 06</td>
+                        <td class="ace-td bg-info">Item - 07</td>
+                        <td class="ace-td bg-info">Item - 08</td>
+                        <td class="ace-td bg-info">Item - 09</td>
+                        <td class="ace-td bg-info">Item - 010</td>
+                        <td class="ace-td bg-info">Item - 011</td>
+                        <td class="ace-td bg-info">Item - 012</td>
+                        <td class="ace-td bg-info">Item - 013</td>
+                        <td class="ace-td bg-info">Item - 014</td>
+                        <td class="ace-td bg-info">Item - 015</td>
+                        <td class="ace-td bg-info">Item - 016</td>
+                        <td class="ace-td bg-info">Item - 017</td>
+                        <td class="ace-td bg-info">Item - 018</td>
+                        <td class="ace-td bg-info">Item - 019</td>
+                        <td class="ace-td bg-info">Item - 020</td>
+                        <td class="ace-td bg-info">Item - 021</td>
+                        <td class="ace-td bg-info">Item - 022</td>
+                        <td class="ace-td bg-info">Item - 023</td>
+                        <td class="ace-td bg-info">Item - 024</td>
+                        <td class="ace-td bg-info">Item - 025</td>
+                        <td class="ace-td bg-info">Item - 026</td>
+                        <td class="ace-td bg-info">Item - 027</td>
+                        <td class="ace-td bg-info">Item - 028</td>
+                        <td class="ace-td bg-info">Item - 029</td>
                     </tr>
-                    <tr data-v-7a7a37b1="" class="ace-tr">
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 10</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 11</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 12</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 13</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 14</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 15</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 16</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 17</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 18</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 19</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 110</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 111</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 112</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 113</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 114</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 115</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 116</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 117</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 118</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 119</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 120</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 121</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 122</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 123</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 124</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 125</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 126</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 127</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 128</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 129</td>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
-                    <tr data-v-7a7a37b1="" class="ace-tr">
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 20</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 21</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 22</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 23</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 24</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 25</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 26</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 27</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 28</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 29</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 210</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 211</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 212</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 213</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 214</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 215</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 216</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 217</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 218</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 219</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 220</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 221</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 222</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 223</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 224</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 225</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 226</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 227</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 228</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 229</td>
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 10</td>
+                        <td class="ace-td bg-info">Item - 11 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 12</td>
+                        <td class="ace-td bg-info">Item - 13</td>
+                        <td class="ace-td bg-info">Item - 14</td>
+                        <td class="ace-td bg-info">Item - 15</td>
+                        <td class="ace-td bg-info">Item - 16</td>
+                        <td class="ace-td bg-info">Item - 17</td>
+                        <td class="ace-td bg-info">Item - 18</td>
+                        <td class="ace-td bg-info">Item - 19</td>
+                        <td class="ace-td bg-info">Item - 110</td>
+                        <td class="ace-td bg-info">Item - 111</td>
+                        <td class="ace-td bg-info">Item - 112</td>
+                        <td class="ace-td bg-info">Item - 113</td>
+                        <td class="ace-td bg-info">Item - 114</td>
+                        <td class="ace-td bg-info">Item - 115</td>
+                        <td class="ace-td bg-info">Item - 116</td>
+                        <td class="ace-td bg-info">Item - 117</td>
+                        <td class="ace-td bg-info">Item - 118</td>
+                        <td class="ace-td bg-info">Item - 119</td>
+                        <td class="ace-td bg-info">Item - 120</td>
+                        <td class="ace-td bg-info">Item - 121</td>
+                        <td class="ace-td bg-info">Item - 122</td>
+                        <td class="ace-td bg-info">Item - 123</td>
+                        <td class="ace-td bg-info">Item - 124</td>
+                        <td class="ace-td bg-info">Item - 125</td>
+                        <td class="ace-td bg-info">Item - 126</td>
+                        <td class="ace-td bg-info">Item - 127</td>
+                        <td class="ace-td bg-info">Item - 128</td>
+                        <td class="ace-td bg-info">Item - 129</td>
                     </tr>
-                    <tr data-v-7a7a37b1="" class="ace-tr">
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 30</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 31</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 32</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 33</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 34</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 35</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 36</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 37</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 38</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 39</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 310</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 311</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 312</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 313</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 314</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 315</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 316</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 317</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 318</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 319</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 320</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 321</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 322</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 323</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 324</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 325</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 326</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 327</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 328</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 329</td>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-2">
+                            Child Row
+                        </td>
                     </tr>
-                    <tr data-v-7a7a37b1="" class="ace-tr">
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 40</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 41</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 42</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 43</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 44</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 45</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 46</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 47</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 48</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 49</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 410</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 411</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 412</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 413</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 414</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 415</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 416</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 417</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 418</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 419</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 420</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 421</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 422</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 423</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 424</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 425</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 426</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 427</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 428</td>
-                        <td data-v-7a7a37b1="" class="ace-td bg-info">Item - 429</td>
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 20</td>
+                        <td class="ace-td bg-info">Item - 21 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 22</td>
+                        <td class="ace-td bg-info">Item - 23</td>
+                        <td class="ace-td bg-info">Item - 24</td>
+                        <td class="ace-td bg-info">Item - 25</td>
+                        <td class="ace-td bg-info">Item - 26</td>
+                        <td class="ace-td bg-info">Item - 27</td>
+                        <td class="ace-td bg-info">Item - 28</td>
+                        <td class="ace-td bg-info">
+                            Item-29.Areallylongtext-without-whitespaces-but-with-hypens&othercharac#$%^&*()ers.Ireallywantedthistexttobelonghenceikepttyping
+                        </td>
+                        <td class="ace-td bg-info">Item - 210</td>
+                        <td class="ace-td bg-info">Item - 211</td>
+                        <td class="ace-td bg-info">Item - 212</td>
+                        <td class="ace-td bg-info">Item - 213</td>
+                        <td class="ace-td bg-info">Item - 214</td>
+                        <td class="ace-td bg-info">Item - 215</td>
+                        <td class="ace-td bg-info">Item - 216</td>
+                        <td class="ace-td bg-info">Item - 217</td>
+                        <td class="ace-td bg-info">Item - 218</td>
+                        <td class="ace-td bg-info">Item - 219</td>
+                        <td class="ace-td bg-info">Item - 220</td>
+                        <td class="ace-td bg-info">Item - 221</td>
+                        <td class="ace-td bg-info">Item - 222</td>
+                        <td class="ace-td bg-info">Item - 223</td>
+                        <td class="ace-td bg-info">Item - 224</td>
+                        <td class="ace-td bg-info">Item - 225</td>
+                        <td class="ace-td bg-info">Item - 226</td>
+                        <td class="ace-td bg-info">Item - 227</td>
+                        <td class="ace-td bg-info">Item - 228</td>
+                        <td class="ace-td bg-info">Item - 229</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-2">
+                            Child Row
+                        </td>
+                    </tr>
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 30</td>
+                        <td class="ace-td bg-info">Item - 31 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 32</td>
+                        <td class="ace-td bg-info">Item - 33</td>
+                        <td class="ace-td bg-info">Item - 34</td>
+                        <td class="ace-td bg-info">Item - 35</td>
+                        <td class="ace-td bg-info">Item - 36</td>
+                        <td class="ace-td bg-info">Item - 37</td>
+                        <td class="ace-td bg-info">Item - 38</td>
+                        <td class="ace-td bg-info">Item - 39</td>
+                        <td class="ace-td bg-info">Item - 310</td>
+                        <td class="ace-td bg-info">Item - 311</td>
+                        <td class="ace-td bg-info">Item - 312</td>
+                        <td class="ace-td bg-info">Item - 313</td>
+                        <td class="ace-td bg-info">Item - 314</td>
+                        <td class="ace-td bg-info">Item - 315</td>
+                        <td class="ace-td bg-info">Item - 316</td>
+                        <td class="ace-td bg-info">Item - 317</td>
+                        <td class="ace-td bg-info">Item - 318</td>
+                        <td class="ace-td bg-info">Item - 319</td>
+                        <td class="ace-td bg-info">Item - 320</td>
+                        <td class="ace-td bg-info">Item - 321</td>
+                        <td class="ace-td bg-info">Item - 322</td>
+                        <td class="ace-td bg-info">Item - 323</td>
+                        <td class="ace-td bg-info">Item - 324</td>
+                        <td class="ace-td bg-info">Item - 325</td>
+                        <td class="ace-td bg-info">Item - 326</td>
+                        <td class="ace-td bg-info">Item - 327</td>
+                        <td class="ace-td bg-info">Item - 328</td>
+                        <td class="ace-td bg-info">Item - 329</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-2">
+                            Child Row
+                        </td>
+                    </tr>
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 40</td>
+                        <td class="ace-td bg-info">Item - 41 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 42</td>
+                        <td class="ace-td bg-info">Item - 43</td>
+                        <td class="ace-td bg-info">Item - 44</td>
+                        <td class="ace-td bg-info">Item - 45</td>
+                        <td class="ace-td bg-info">Item - 46</td>
+                        <td class="ace-td bg-info">Item - 47</td>
+                        <td class="ace-td bg-info">Item - 48</td>
+                        <td class="ace-td bg-info">Item - 49</td>
+                        <td class="ace-td bg-info">Item - 410</td>
+                        <td class="ace-td bg-info">Item - 411</td>
+                        <td class="ace-td bg-info">Item - 412</td>
+                        <td class="ace-td bg-info">Item - 413</td>
+                        <td class="ace-td bg-info">Item - 414</td>
+                        <td class="ace-td bg-info">Item - 415</td>
+                        <td class="ace-td bg-info">Item - 416</td>
+                        <td class="ace-td bg-info">Item - 417</td>
+                        <td class="ace-td bg-info">Item - 418</td>
+                        <td class="ace-td bg-info">Item - 419</td>
+                        <td class="ace-td bg-info">Item - 420</td>
+                        <td class="ace-td bg-info">Item - 421</td>
+                        <td class="ace-td bg-info">Item - 422</td>
+                        <td class="ace-td bg-info">Item - 423</td>
+                        <td class="ace-td bg-info">Item - 424</td>
+                        <td class="ace-td bg-info">Item - 425</td>
+                        <td class="ace-td bg-info">Item - 426</td>
+                        <td class="ace-td bg-info">Item - 427</td>
+                        <td class="ace-td bg-info">Item - 428</td>
+                        <td class="ace-td bg-info">Item - 429</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-2">
+                            Child Row
+                        </td>
+                    </tr>
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 00</td>
+                        <td class="ace-td bg-info">Item - 01 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 02</td>
+                        <td class="ace-td bg-info">Item - 03</td>
+                        <td class="ace-td bg-info">Item - 04</td>
+                        <td class="ace-td bg-info">Item - 05</td>
+                        <td class="ace-td bg-info">Item - 06</td>
+                        <td class="ace-td bg-info">Item - 07</td>
+                        <td class="ace-td bg-info">Item - 08</td>
+                        <td class="ace-td bg-info">Item - 09</td>
+                        <td class="ace-td bg-info">Item - 010</td>
+                        <td class="ace-td bg-info">Item - 011</td>
+                        <td class="ace-td bg-info">Item - 012</td>
+                        <td class="ace-td bg-info">Item - 013</td>
+                        <td class="ace-td bg-info">Item - 014</td>
+                        <td class="ace-td bg-info">Item - 015</td>
+                        <td class="ace-td bg-info">Item - 016</td>
+                        <td class="ace-td bg-info">Item - 017</td>
+                        <td class="ace-td bg-info">Item - 018</td>
+                        <td class="ace-td bg-info">Item - 019</td>
+                        <td class="ace-td bg-info">Item - 020</td>
+                        <td class="ace-td bg-info">Item - 021</td>
+                        <td class="ace-td bg-info">Item - 022</td>
+                        <td class="ace-td bg-info">Item - 023</td>
+                        <td class="ace-td bg-info">Item - 024</td>
+                        <td class="ace-td bg-info">Item - 025</td>
+                        <td class="ace-td bg-info">Item - 026</td>
+                        <td class="ace-td bg-info">Item - 027</td>
+                        <td class="ace-td bg-info">Item - 028</td>
+                        <td class="ace-td bg-info">Item - 029</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 00</td>
+                        <td class="ace-td bg-info">Item - 01 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 02</td>
+                        <td class="ace-td bg-info">Item - 03</td>
+                        <td class="ace-td bg-info">Item - 04</td>
+                        <td class="ace-td bg-info">Item - 05</td>
+                        <td class="ace-td bg-info">Item - 06</td>
+                        <td class="ace-td bg-info">Item - 07</td>
+                        <td class="ace-td bg-info">Item - 08</td>
+                        <td class="ace-td bg-info">Item - 09</td>
+                        <td class="ace-td bg-info">Item - 010</td>
+                        <td class="ace-td bg-info">Item - 011</td>
+                        <td class="ace-td bg-info">Item - 012</td>
+                        <td class="ace-td bg-info">Item - 013</td>
+                        <td class="ace-td bg-info">Item - 014</td>
+                        <td class="ace-td bg-info">Item - 015</td>
+                        <td class="ace-td bg-info">Item - 016</td>
+                        <td class="ace-td bg-info">Item - 017</td>
+                        <td class="ace-td bg-info">Item - 018</td>
+                        <td class="ace-td bg-info">Item - 019</td>
+                        <td class="ace-td bg-info">Item - 020</td>
+                        <td class="ace-td bg-info">Item - 021</td>
+                        <td class="ace-td bg-info">Item - 022</td>
+                        <td class="ace-td bg-info">Item - 023</td>
+                        <td class="ace-td bg-info">Item - 024</td>
+                        <td class="ace-td bg-info">Item - 025</td>
+                        <td class="ace-td bg-info">Item - 026</td>
+                        <td class="ace-td bg-info">Item - 027</td>
+                        <td class="ace-td bg-info">Item - 028</td>
+                        <td class="ace-td bg-info">Item - 029</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 00</td>
+                        <td class="ace-td bg-info">Item - 01 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 02</td>
+                        <td class="ace-td bg-info">Item - 03</td>
+                        <td class="ace-td bg-info">Item - 04</td>
+                        <td class="ace-td bg-info">Item - 05</td>
+                        <td class="ace-td bg-info">Item - 06</td>
+                        <td class="ace-td bg-info">Item - 07</td>
+                        <td class="ace-td bg-info">Item - 08</td>
+                        <td class="ace-td bg-info">Item - 09</td>
+                        <td class="ace-td bg-info">Item - 010</td>
+                        <td class="ace-td bg-info">Item - 011</td>
+                        <td class="ace-td bg-info">Item - 012</td>
+                        <td class="ace-td bg-info">Item - 013</td>
+                        <td class="ace-td bg-info">Item - 014</td>
+                        <td class="ace-td bg-info">Item - 015</td>
+                        <td class="ace-td bg-info">Item - 016</td>
+                        <td class="ace-td bg-info">Item - 017</td>
+                        <td class="ace-td bg-info">Item - 018</td>
+                        <td class="ace-td bg-info">Item - 019</td>
+                        <td class="ace-td bg-info">Item - 020</td>
+                        <td class="ace-td bg-info">Item - 021</td>
+                        <td class="ace-td bg-info">Item - 022</td>
+                        <td class="ace-td bg-info">Item - 023</td>
+                        <td class="ace-td bg-info">Item - 024</td>
+                        <td class="ace-td bg-info">Item - 025</td>
+                        <td class="ace-td bg-info">Item - 026</td>
+                        <td class="ace-td bg-info">Item - 027</td>
+                        <td class="ace-td bg-info">Item - 028</td>
+                        <td class="ace-td bg-info">Item - 029</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 00</td>
+                        <td class="ace-td bg-info">Item - 01 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 02</td>
+                        <td class="ace-td bg-info">Item - 03</td>
+                        <td class="ace-td bg-info">Item - 04</td>
+                        <td class="ace-td bg-info">Item - 05</td>
+                        <td class="ace-td bg-info">Item - 06</td>
+                        <td class="ace-td bg-info">Item - 07</td>
+                        <td class="ace-td bg-info">Item - 08</td>
+                        <td class="ace-td bg-info">Item - 09</td>
+                        <td class="ace-td bg-info">Item - 010</td>
+                        <td class="ace-td bg-info">Item - 011</td>
+                        <td class="ace-td bg-info">Item - 012</td>
+                        <td class="ace-td bg-info">Item - 013</td>
+                        <td class="ace-td bg-info">Item - 014</td>
+                        <td class="ace-td bg-info">Item - 015</td>
+                        <td class="ace-td bg-info">Item - 016</td>
+                        <td class="ace-td bg-info">Item - 017</td>
+                        <td class="ace-td bg-info">Item - 018</td>
+                        <td class="ace-td bg-info">Item - 019</td>
+                        <td class="ace-td bg-info">Item - 020</td>
+                        <td class="ace-td bg-info">Item - 021</td>
+                        <td class="ace-td bg-info">Item - 022</td>
+                        <td class="ace-td bg-info">Item - 023</td>
+                        <td class="ace-td bg-info">Item - 024</td>
+                        <td class="ace-td bg-info">Item - 025</td>
+                        <td class="ace-td bg-info">Item - 026</td>
+                        <td class="ace-td bg-info">Item - 027</td>
+                        <td class="ace-td bg-info">Item - 028</td>
+                        <td class="ace-td bg-info">Item - 029</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 00</td>
+                        <td class="ace-td bg-info">Item - 01 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 02</td>
+                        <td class="ace-td bg-info">Item - 03</td>
+                        <td class="ace-td bg-info">Item - 04</td>
+                        <td class="ace-td bg-info">Item - 05</td>
+                        <td class="ace-td bg-info">Item - 06</td>
+                        <td class="ace-td bg-info">Item - 07</td>
+                        <td class="ace-td bg-info">Item - 08</td>
+                        <td class="ace-td bg-info">Item - 09</td>
+                        <td class="ace-td bg-info">Item - 010</td>
+                        <td class="ace-td bg-info">Item - 011</td>
+                        <td class="ace-td bg-info">Item - 012</td>
+                        <td class="ace-td bg-info">Item - 013</td>
+                        <td class="ace-td bg-info">Item - 014</td>
+                        <td class="ace-td bg-info">Item - 015</td>
+                        <td class="ace-td bg-info">Item - 016</td>
+                        <td class="ace-td bg-info">Item - 017</td>
+                        <td class="ace-td bg-info">Item - 018</td>
+                        <td class="ace-td bg-info">Item - 019</td>
+                        <td class="ace-td bg-info">Item - 020</td>
+                        <td class="ace-td bg-info">Item - 021</td>
+                        <td class="ace-td bg-info">Item - 022</td>
+                        <td class="ace-td bg-info">Item - 023</td>
+                        <td class="ace-td bg-info">Item - 024</td>
+                        <td class="ace-td bg-info">Item - 025</td>
+                        <td class="ace-td bg-info">Item - 026</td>
+                        <td class="ace-td bg-info">Item - 027</td>
+                        <td class="ace-td bg-info">Item - 028</td>
+                        <td class="ace-td bg-info">Item - 029</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 00</td>
+                        <td class="ace-td bg-info">Item - 01 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 02</td>
+                        <td class="ace-td bg-info">Item - 03</td>
+                        <td class="ace-td bg-info">Item - 04</td>
+                        <td class="ace-td bg-info">Item - 05</td>
+                        <td class="ace-td bg-info">Item - 06</td>
+                        <td class="ace-td bg-info">Item - 07</td>
+                        <td class="ace-td bg-info">Item - 08</td>
+                        <td class="ace-td bg-info">Item - 09</td>
+                        <td class="ace-td bg-info">Item - 010</td>
+                        <td class="ace-td bg-info">Item - 011</td>
+                        <td class="ace-td bg-info">Item - 012</td>
+                        <td class="ace-td bg-info">Item - 013</td>
+                        <td class="ace-td bg-info">Item - 014</td>
+                        <td class="ace-td bg-info">Item - 015</td>
+                        <td class="ace-td bg-info">Item - 016</td>
+                        <td class="ace-td bg-info">Item - 017</td>
+                        <td class="ace-td bg-info">Item - 018</td>
+                        <td class="ace-td bg-info">Item - 019</td>
+                        <td class="ace-td bg-info">Item - 020</td>
+                        <td class="ace-td bg-info">Item - 021</td>
+                        <td class="ace-td bg-info">Item - 022</td>
+                        <td class="ace-td bg-info">Item - 023</td>
+                        <td class="ace-td bg-info">Item - 024</td>
+                        <td class="ace-td bg-info">Item - 025</td>
+                        <td class="ace-td bg-info">Item - 026</td>
+                        <td class="ace-td bg-info">Item - 027</td>
+                        <td class="ace-td bg-info">Item - 028</td>
+                        <td class="ace-td bg-info">Item - 029</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 00</td>
+                        <td class="ace-td bg-info">Item - 01 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 02</td>
+                        <td class="ace-td bg-info">Item - 03</td>
+                        <td class="ace-td bg-info">Item - 04</td>
+                        <td class="ace-td bg-info">Item - 05</td>
+                        <td class="ace-td bg-info">Item - 06</td>
+                        <td class="ace-td bg-info">Item - 07</td>
+                        <td class="ace-td bg-info">Item - 08</td>
+                        <td class="ace-td bg-info">Item - 09</td>
+                        <td class="ace-td bg-info">Item - 010</td>
+                        <td class="ace-td bg-info">Item - 011</td>
+                        <td class="ace-td bg-info">Item - 012</td>
+                        <td class="ace-td bg-info">Item - 013</td>
+                        <td class="ace-td bg-info">Item - 014</td>
+                        <td class="ace-td bg-info">Item - 015</td>
+                        <td class="ace-td bg-info">Item - 016</td>
+                        <td class="ace-td bg-info">Item - 017</td>
+                        <td class="ace-td bg-info">Item - 018</td>
+                        <td class="ace-td bg-info">Item - 019</td>
+                        <td class="ace-td bg-info">Item - 020</td>
+                        <td class="ace-td bg-info">Item - 021</td>
+                        <td class="ace-td bg-info">Item - 022</td>
+                        <td class="ace-td bg-info">Item - 023</td>
+                        <td class="ace-td bg-info">Item - 024</td>
+                        <td class="ace-td bg-info">Item - 025</td>
+                        <td class="ace-td bg-info">Item - 026</td>
+                        <td class="ace-td bg-info">Item - 027</td>
+                        <td class="ace-td bg-info">Item - 028</td>
+                        <td class="ace-td bg-info">Item - 029</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 00</td>
+                        <td class="ace-td bg-info">Item - 01 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 02</td>
+                        <td class="ace-td bg-info">Item - 03</td>
+                        <td class="ace-td bg-info">Item - 04</td>
+                        <td class="ace-td bg-info">Item - 05</td>
+                        <td class="ace-td bg-info">Item - 06</td>
+                        <td class="ace-td bg-info">Item - 07</td>
+                        <td class="ace-td bg-info">Item - 08</td>
+                        <td class="ace-td bg-info">Item - 09</td>
+                        <td class="ace-td bg-info">Item - 010</td>
+                        <td class="ace-td bg-info">Item - 011</td>
+                        <td class="ace-td bg-info">Item - 012</td>
+                        <td class="ace-td bg-info">Item - 013</td>
+                        <td class="ace-td bg-info">Item - 014</td>
+                        <td class="ace-td bg-info">Item - 015</td>
+                        <td class="ace-td bg-info">Item - 016</td>
+                        <td class="ace-td bg-info">Item - 017</td>
+                        <td class="ace-td bg-info">Item - 018</td>
+                        <td class="ace-td bg-info">Item - 019</td>
+                        <td class="ace-td bg-info">Item - 020</td>
+                        <td class="ace-td bg-info">Item - 021</td>
+                        <td class="ace-td bg-info">Item - 022</td>
+                        <td class="ace-td bg-info">Item - 023</td>
+                        <td class="ace-td bg-info">Item - 024</td>
+                        <td class="ace-td bg-info">Item - 025</td>
+                        <td class="ace-td bg-info">Item - 026</td>
+                        <td class="ace-td bg-info">Item - 027</td>
+                        <td class="ace-td bg-info">Item - 028</td>
+                        <td class="ace-td bg-info">Item - 029</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 00</td>
+                        <td class="ace-td bg-info">Item - 01 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 02</td>
+                        <td class="ace-td bg-info">Item - 03</td>
+                        <td class="ace-td bg-info">Item - 04</td>
+                        <td class="ace-td bg-info">Item - 05</td>
+                        <td class="ace-td bg-info">Item - 06</td>
+                        <td class="ace-td bg-info">Item - 07</td>
+                        <td class="ace-td bg-info">Item - 08</td>
+                        <td class="ace-td bg-info">Item - 09</td>
+                        <td class="ace-td bg-info">Item - 010</td>
+                        <td class="ace-td bg-info">Item - 011</td>
+                        <td class="ace-td bg-info">Item - 012</td>
+                        <td class="ace-td bg-info">Item - 013</td>
+                        <td class="ace-td bg-info">Item - 014</td>
+                        <td class="ace-td bg-info">Item - 015</td>
+                        <td class="ace-td bg-info">Item - 016</td>
+                        <td class="ace-td bg-info">Item - 017</td>
+                        <td class="ace-td bg-info">Item - 018</td>
+                        <td class="ace-td bg-info">Item - 019</td>
+                        <td class="ace-td bg-info">Item - 020</td>
+                        <td class="ace-td bg-info">Item - 021</td>
+                        <td class="ace-td bg-info">Item - 022</td>
+                        <td class="ace-td bg-info">Item - 023</td>
+                        <td class="ace-td bg-info">Item - 024</td>
+                        <td class="ace-td bg-info">Item - 025</td>
+                        <td class="ace-td bg-info">Item - 026</td>
+                        <td class="ace-td bg-info">Item - 027</td>
+                        <td class="ace-td bg-info">Item - 028</td>
+                        <td class="ace-td bg-info">Item - 029</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 00</td>
+                        <td class="ace-td bg-info">Item - 01 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 02</td>
+                        <td class="ace-td bg-info">Item - 03</td>
+                        <td class="ace-td bg-info">Item - 04</td>
+                        <td class="ace-td bg-info">Item - 05</td>
+                        <td class="ace-td bg-info">Item - 06</td>
+                        <td class="ace-td bg-info">Item - 07</td>
+                        <td class="ace-td bg-info">Item - 08</td>
+                        <td class="ace-td bg-info">Item - 09</td>
+                        <td class="ace-td bg-info">Item - 010</td>
+                        <td class="ace-td bg-info">Item - 011</td>
+                        <td class="ace-td bg-info">Item - 012</td>
+                        <td class="ace-td bg-info">Item - 013</td>
+                        <td class="ace-td bg-info">Item - 014</td>
+                        <td class="ace-td bg-info">Item - 015</td>
+                        <td class="ace-td bg-info">Item - 016</td>
+                        <td class="ace-td bg-info">Item - 017</td>
+                        <td class="ace-td bg-info">Item - 018</td>
+                        <td class="ace-td bg-info">Item - 019</td>
+                        <td class="ace-td bg-info">Item - 020</td>
+                        <td class="ace-td bg-info">Item - 021</td>
+                        <td class="ace-td bg-info">Item - 022</td>
+                        <td class="ace-td bg-info">Item - 023</td>
+                        <td class="ace-td bg-info">Item - 024</td>
+                        <td class="ace-td bg-info">Item - 025</td>
+                        <td class="ace-td bg-info">Item - 026</td>
+                        <td class="ace-td bg-info">Item - 027</td>
+                        <td class="ace-td bg-info">Item - 028</td>
+                        <td class="ace-td bg-info">Item - 029</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 00</td>
+                        <td class="ace-td bg-info">Item - 01 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 02</td>
+                        <td class="ace-td bg-info">Item - 03</td>
+                        <td class="ace-td bg-info">Item - 04</td>
+                        <td class="ace-td bg-info">Item - 05</td>
+                        <td class="ace-td bg-info">Item - 06</td>
+                        <td class="ace-td bg-info">Item - 07</td>
+                        <td class="ace-td bg-info">Item - 08</td>
+                        <td class="ace-td bg-info">Item - 09</td>
+                        <td class="ace-td bg-info">Item - 010</td>
+                        <td class="ace-td bg-info">Item - 011</td>
+                        <td class="ace-td bg-info">Item - 012</td>
+                        <td class="ace-td bg-info">Item - 013</td>
+                        <td class="ace-td bg-info">Item - 014</td>
+                        <td class="ace-td bg-info">Item - 015</td>
+                        <td class="ace-td bg-info">Item - 016</td>
+                        <td class="ace-td bg-info">Item - 017</td>
+                        <td class="ace-td bg-info">Item - 018</td>
+                        <td class="ace-td bg-info">Item - 019</td>
+                        <td class="ace-td bg-info">Item - 020</td>
+                        <td class="ace-td bg-info">Item - 021</td>
+                        <td class="ace-td bg-info">Item - 022</td>
+                        <td class="ace-td bg-info">Item - 023</td>
+                        <td class="ace-td bg-info">Item - 024</td>
+                        <td class="ace-td bg-info">Item - 025</td>
+                        <td class="ace-td bg-info">Item - 026</td>
+                        <td class="ace-td bg-info">Item - 027</td>
+                        <td class="ace-td bg-info">Item - 028</td>
+                        <td class="ace-td bg-info">Item - 029</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 00</td>
+                        <td class="ace-td bg-info">Item - 01 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 02</td>
+                        <td class="ace-td bg-info">Item - 03</td>
+                        <td class="ace-td bg-info">Item - 04</td>
+                        <td class="ace-td bg-info">Item - 05</td>
+                        <td class="ace-td bg-info">Item - 06</td>
+                        <td class="ace-td bg-info">Item - 07</td>
+                        <td class="ace-td bg-info">Item - 08</td>
+                        <td class="ace-td bg-info">Item - 09</td>
+                        <td class="ace-td bg-info">Item - 010</td>
+                        <td class="ace-td bg-info">Item - 011</td>
+                        <td class="ace-td bg-info">Item - 012</td>
+                        <td class="ace-td bg-info">Item - 013</td>
+                        <td class="ace-td bg-info">Item - 014</td>
+                        <td class="ace-td bg-info">Item - 015</td>
+                        <td class="ace-td bg-info">Item - 016</td>
+                        <td class="ace-td bg-info">Item - 017</td>
+                        <td class="ace-td bg-info">Item - 018</td>
+                        <td class="ace-td bg-info">Item - 019</td>
+                        <td class="ace-td bg-info">Item - 020</td>
+                        <td class="ace-td bg-info">Item - 021</td>
+                        <td class="ace-td bg-info">Item - 022</td>
+                        <td class="ace-td bg-info">Item - 023</td>
+                        <td class="ace-td bg-info">Item - 024</td>
+                        <td class="ace-td bg-info">Item - 025</td>
+                        <td class="ace-td bg-info">Item - 026</td>
+                        <td class="ace-td bg-info">Item - 027</td>
+                        <td class="ace-td bg-info">Item - 028</td>
+                        <td class="ace-td bg-info">Item - 029</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 00</td>
+                        <td class="ace-td bg-info">Item - 01 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 02</td>
+                        <td class="ace-td bg-info">Item - 03</td>
+                        <td class="ace-td bg-info">Item - 04</td>
+                        <td class="ace-td bg-info">Item - 05</td>
+                        <td class="ace-td bg-info">Item - 06</td>
+                        <td class="ace-td bg-info">Item - 07</td>
+                        <td class="ace-td bg-info">Item - 08</td>
+                        <td class="ace-td bg-info">Item - 09</td>
+                        <td class="ace-td bg-info">Item - 010</td>
+                        <td class="ace-td bg-info">Item - 011</td>
+                        <td class="ace-td bg-info">Item - 012</td>
+                        <td class="ace-td bg-info">Item - 013</td>
+                        <td class="ace-td bg-info">Item - 014</td>
+                        <td class="ace-td bg-info">Item - 015</td>
+                        <td class="ace-td bg-info">Item - 016</td>
+                        <td class="ace-td bg-info">Item - 017</td>
+                        <td class="ace-td bg-info">Item - 018</td>
+                        <td class="ace-td bg-info">Item - 019</td>
+                        <td class="ace-td bg-info">Item - 020</td>
+                        <td class="ace-td bg-info">Item - 021</td>
+                        <td class="ace-td bg-info">Item - 022</td>
+                        <td class="ace-td bg-info">Item - 023</td>
+                        <td class="ace-td bg-info">Item - 024</td>
+                        <td class="ace-td bg-info">Item - 025</td>
+                        <td class="ace-td bg-info">Item - 026</td>
+                        <td class="ace-td bg-info">Item - 027</td>
+                        <td class="ace-td bg-info">Item - 028</td>
+                        <td class="ace-td bg-info">Item - 029</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 00</td>
+                        <td class="ace-td bg-info">Item - 01 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 02</td>
+                        <td class="ace-td bg-info">Item - 03</td>
+                        <td class="ace-td bg-info">Item - 04</td>
+                        <td class="ace-td bg-info">Item - 05</td>
+                        <td class="ace-td bg-info">Item - 06</td>
+                        <td class="ace-td bg-info">Item - 07</td>
+                        <td class="ace-td bg-info">Item - 08</td>
+                        <td class="ace-td bg-info">Item - 09</td>
+                        <td class="ace-td bg-info">Item - 010</td>
+                        <td class="ace-td bg-info">Item - 011</td>
+                        <td class="ace-td bg-info">Item - 012</td>
+                        <td class="ace-td bg-info">Item - 013</td>
+                        <td class="ace-td bg-info">Item - 014</td>
+                        <td class="ace-td bg-info">Item - 015</td>
+                        <td class="ace-td bg-info">Item - 016</td>
+                        <td class="ace-td bg-info">Item - 017</td>
+                        <td class="ace-td bg-info">Item - 018</td>
+                        <td class="ace-td bg-info">Item - 019</td>
+                        <td class="ace-td bg-info">Item - 020</td>
+                        <td class="ace-td bg-info">Item - 021</td>
+                        <td class="ace-td bg-info">Item - 022</td>
+                        <td class="ace-td bg-info">Item - 023</td>
+                        <td class="ace-td bg-info">Item - 024</td>
+                        <td class="ace-td bg-info">Item - 025</td>
+                        <td class="ace-td bg-info">Item - 026</td>
+                        <td class="ace-td bg-info">Item - 027</td>
+                        <td class="ace-td bg-info">Item - 028</td>
+                        <td class="ace-td bg-info">Item - 029</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="ace-tr">
+                        <td class="ace-td bg-info">Item - 00</td>
+                        <td class="ace-td bg-info">Item - 01 <i class="material-icons pointer"
+                                role="button">expand_less</i>
+                        </td>
+                        <td class="ace-td bg-info">Item - 02</td>
+                        <td class="ace-td bg-info">Item - 03</td>
+                        <td class="ace-td bg-info">Item - 04</td>
+                        <td class="ace-td bg-info">Item - 05</td>
+                        <td class="ace-td bg-info">Item - 06</td>
+                        <td class="ace-td bg-info">Item - 07</td>
+                        <td class="ace-td bg-info">Item - 08</td>
+                        <td class="ace-td bg-info">Item - 09</td>
+                        <td class="ace-td bg-info">Item - 010</td>
+                        <td class="ace-td bg-info">Item - 011</td>
+                        <td class="ace-td bg-info">Item - 012</td>
+                        <td class="ace-td bg-info">Item - 013</td>
+                        <td class="ace-td bg-info">Item - 014</td>
+                        <td class="ace-td bg-info">Item - 015</td>
+                        <td class="ace-td bg-info">Item - 016</td>
+                        <td class="ace-td bg-info">Item - 017</td>
+                        <td class="ace-td bg-info">Item - 018</td>
+                        <td class="ace-td bg-info">Item - 019</td>
+                        <td class="ace-td bg-info">Item - 020</td>
+                        <td class="ace-td bg-info">Item - 021</td>
+                        <td class="ace-td bg-info">Item - 022</td>
+                        <td class="ace-td bg-info">Item - 023</td>
+                        <td class="ace-td bg-info">Item - 024</td>
+                        <td class="ace-td bg-info">Item - 025</td>
+                        <td class="ace-td bg-info">Item - 026</td>
+                        <td class="ace-td bg-info">Item - 027</td>
+                        <td class="ace-td bg-info">Item - 028</td>
+                        <td class="ace-td bg-info">Item - 029</td>
+                    </tr>
+                    <tr class="ace-detail-row">
+                        <td colspan="30" class="p-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+
+    <script type="text/javascript">
+        (function () {
+            document.addEventListener("DOMContentLoaded", (event) => {
+
+                tableRoot.addEventListener("click", (event) => {
+                    const target = event.target;
+                    if (target.role !== "button") return;
+
+                    const targetRow = target.closest(".ace-tr");
+
+                    const childRow = targetRow.nextElementSibling;
+
+                    if (!childRow.classList.contains("open")) {
+                        target.textContent = "expand_more";
+                    } else {
+                        target.textContent = "expand_less";
+                    }
+
+                    childRow.classList.toggle("open")
+                })
+            });
+        })()
+    </script>
 </body>
 
 </html>
