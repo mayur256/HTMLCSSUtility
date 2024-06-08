@@ -5,47 +5,70 @@
     </head>
 
     <body>
-        <div class="conference-container">
-            <div class="video-tile">
-                <video src="assets/demo.mp4" loop autoplay muted></video>
-            </div>
-            <div class="video-tile">
-                <video src="assets/demo.mp4" loop autoplay muted></video>
-            </div>
-            <div class="video-tile">
-                <video src="assets/demo.mp4" loop autoplay muted></video>
-            </div>
-            <div class="video-tile">
-                <video src="assets/demo.mp4" loop autoplay muted></video>
-            </div>
-            <div class="video-tile">
-                <video src="assets/demo.mp4" loop autoplay muted></video>
-            </div>
-            <div class="video-tile">
-                <video src="assets/demo.mp4" loop autoplay muted></video>
-            </div>
-            <div class="video-tile">
-                <video src="assets/demo.mp4" loop autoplay muted></video>
-            </div>
-            <div class="video-tile">
-                <video src="assets/demo.mp4" loop autoplay muted></video>
-            </div>
-            <div class="video-tile">
-                <video src="assets/demo.mp4" loop autoplay muted></video>
-            </div>
-            <div class="video-tile">
-                <video src="assets/demo.mp4" loop autoplay muted></video>
-            </div>
-            <div class="video-tile">
-                <video src="assets/demo.mp4" loop autoplay muted></video>
-            </div>
-            <div class="video-tile">
-                <video src="assets/demo.mp4" loop autoplay muted></video>
-            </div>
-            <div class="video-tile">
-                <video src="assets/demo.mp4" loop autoplay muted></video>
-            </div>
+        <button onclick="toggleScreenShare()">Show Screen Share</button>
+        <div class="app-container">
             
+            <div class="screen-share-container">
+                <video src="assets/sample-screen-share.mp4" loop autoplay muted></video>
+            </div>
+
+            <div class="conference-container">
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                
+            </div>
         </div>
+
+        <script type="text/javascript">
+            function toggleScreenShare() {
+                const screensShare = document.querySelector(".screen-share-container");
+                const appContainer = document.querySelector(".app-container");
+                const isVisisble = screensShare.style.display === "block"
+                if (isVisisble) {
+                    appContainer.style.display = "block";
+                } else {
+                    appContainer.style.display = "grid";
+                }
+                screensShare.style.display = isVisisble ? "none" : "block";
+
+            }
+        </script>
     </body>
 </html>

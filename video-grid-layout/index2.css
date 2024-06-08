@@ -1,0 +1,41 @@
+
+.conference-container {
+    height:100%;
+    display: grid;
+    grid-gap: 0.5rem;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+.video-tile {
+    min-height: 15rem;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #ddd;
+    background-color: azure;
+}
+
+.video-tile > video {
+    height: 100%;
+    width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+    .conference-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/** large devices */
+@media only screen and (min-width: 992px) {
+    .conference-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/** Extra large */
+@media only screen and (min-width: 1200px) {
+    .conference-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
