@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Grid Layout</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden; /* Ensure the whole layout doesn't exceed 100vh */
+        }
+        .app-container {
+            display: grid;
+            grid-template-rows: 7% 93%;
+            height: 100%;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        .call-tile-container {
+            display: grid;
+            grid-template-columns: 100%;
+            height: 100%;
+        }
+        .screen-share-container {
+            background-color: #f1f1f1;
+            padding: 1em;
+            overflow: hidden; /* No scrollbar */
+            display: none;
+        }
+
+        .screen-share-container > video {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .participant-tiles {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            /* align-content: center; */
+            background-color: #ddd;
+            padding: 1em;
+            overflow-y: auto; /* Scrollbar if content overflows */
+        }
+
+        .video-tile {
+            min-height: 15rem;
+            margin: 1rem;
+            height: 200px;
+            width: 250px;
+            border: 1px solid #ddd;
+            background-color: azure;
+        }
+
+        .video-tile > video {
+            height: 100%;
+            width: 100%;
+        }
+
+        @media only screen and (min-width: 576px) {
+            .participant-tiles {
+                flex-direction: row;
+            }
+        }
+
+        /** large devices */
+        @media only screen and (min-width: 992px) {
+            .participant-tiles {
+                flex-direction: row;
+            }
+        }
+
+        /** Extra large */
+        @media only screen and (min-width: 1200px) {
+            .participant-tiles {
+                flex-direction: row;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            Header content
+            <button onclick="toggleScreenShare()">Show Screen Share</button>
+        </div>
+        <div class="call-tile-container">
+            <div class="screen-share-container">
+                <video src="assets/sample-screen-share.mp4" loop autoplay muted></video>
+            </div>
+            <div class="participant-tiles">
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+                <div class="video-tile">
+                    <video src="assets/demo.mp4" loop autoplay muted></video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function toggleScreenShare() {
+            const left = document.querySelector(".screen-share-container");
+            const content = document.querySelector(".call-tile-container");
+            const isVisisble = left.style.display === "block"
+            if (isVisisble) {
+                content.style.gridTemplateColumns = "100%";
+                left.style.display = "none";
+            } else {
+                content.style.gridTemplateColumns = "75% 25%";
+                left.style.display = "block";
+            }
+
+        }
+    </script>
+</body>
+</html>
