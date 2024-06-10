@@ -6,7 +6,7 @@
 
     <body>
         <button onclick="toggleScreenShare()">Show Screen Share</button>
-        <div class="app-container">
+        <div class="call-tile-container">
             
             <div class="screen-share-container">
                 <video src="assets/sample-screen-share.mp4" loop autoplay muted></video>
@@ -59,7 +59,7 @@
         <script type="text/javascript">
             function toggleScreenShare() {
                 const screensShare = document.querySelector(".screen-share-container");
-                const appContainer = document.querySelector(".app-container");
+                const appContainer = document.querySelector(".call-tile-container");
                 const isVisisble = screensShare.style.display === "block"
                 if (isVisisble) {
                     appContainer.style.display = "block";

@@ -1,4 +1,4 @@
-.app-container {
+.call-tile-container {
     display: block;
     grid-template-columns: 70% 30%;
     border: 1px solid #ddd;
